@@ -1,0 +1,9 @@
+[package]
+name = "AC_proj_39"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rhdl = {git = "https://github.com/Pfat8equalsD/rhdl"}
+rhdl-fpga = {git = "https://github.com/Pfat8equalsD/rhdl"}
+rhdl-bsp = {git = "https://github.com/Pfat8equalsD/rhdl"}
