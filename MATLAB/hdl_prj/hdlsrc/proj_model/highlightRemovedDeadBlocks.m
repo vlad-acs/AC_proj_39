@@ -1,0 +1,14 @@
+cs.HiliteType = 'user1';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'red';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('proj_model/Constant','user1');
+hilite_system('proj_model/Data Type Conversion','user1');
+hilite_system('proj_model/Detect Change/Delay Input1','user1');
+hilite_system('proj_model/Detect Change/FixPt Relational Operator','user1');
+hilite_system('proj_model/From','user1');
+hilite_system('proj_model/Goto','user1');
+hilite_system('proj_model/Grid Locator','user1');
+hilite_system('proj_model/Index Buffer','user1');
+hilite_system('proj_model/Sum','user1');
+hilite_system('proj_model/Unit Delay','user1');
