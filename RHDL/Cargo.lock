@@ -7,8 +7,8 @@ name = "AC_proj_39"
 version = "0.1.0"
 dependencies = [
  "rhdl",
- "rhdl-bsp",
  "rhdl-fpga",
+ "rhdl-macro",
 ]
 
 [[package]]
@@ -196,12 +196,6 @@ dependencies = [
  "quote",
  "syn 2.0.111",
 ]
-
-[[package]]
-name = "camino"
-version = "1.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "276a59bf2b2c967788139340c9f0c5b12d7fd6630315c15c217e559de85d2609"
 
 [[package]]
 name = "cfg-if"
@@ -968,7 +962,7 @@ checksum = "7a2d987857b319362043e95f5353c0535c1f58eec5336fdfcf626430af7def58"
 [[package]]
 name = "rhdl"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "rhdl-bits",
  "rhdl-core",
@@ -982,31 +976,16 @@ dependencies = [
 [[package]]
 name = "rhdl-bits"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "rhdl-typenum",
  "seq-macro",
 ]
 
 [[package]]
-name = "rhdl-bsp"
-version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
-dependencies = [
- "camino",
- "expect-test",
- "proc-macro2",
- "quote",
- "rhdl",
- "rhdl-fpga",
- "syn 2.0.111",
- "thiserror",
-]
-
-[[package]]
 name = "rhdl-core"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "anyhow",
  "ena",
@@ -1039,7 +1018,7 @@ dependencies = [
 [[package]]
 name = "rhdl-fpga"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "anyhow",
  "array-init",
@@ -1053,7 +1032,7 @@ dependencies = [
 [[package]]
 name = "rhdl-macro"
 version = "0.0.3"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "rhdl-macro-core",
 ]
@@ -1061,7 +1040,7 @@ dependencies = [
 [[package]]
 name = "rhdl-macro-core"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "evalexpr",
  "inflections",
@@ -1078,7 +1057,7 @@ dependencies = [
 [[package]]
 name = "rhdl-span"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "serde",
 ]
@@ -1086,7 +1065,7 @@ dependencies = [
 [[package]]
 name = "rhdl-trace-type"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "serde",
 ]
@@ -1094,7 +1073,7 @@ dependencies = [
 [[package]]
 name = "rhdl-typenum"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "rhdl-macro",
  "seq-macro",
@@ -1103,7 +1082,7 @@ dependencies = [
 [[package]]
 name = "rhdl-vlog"
 version = "0.1.0"
-source = "git+https://github.com/Pfat8equalsD/rhdl#484e382e4a005e285c9f8fb08d21168b0690413e"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
 dependencies = [
  "log",
  "miette",
