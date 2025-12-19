@@ -1,0 +1,11 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="directive:1:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="calculate_pseudoimage" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=calculate_pseudoimage" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="PFN.cpp:18:0" msg_body="Aggregating bram variable 'pointcloud' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="bram" Name="pointcloud"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="PFN.cpp:19:22" msg_body="pipeline   1 calculate_pseudoimage config_compile -pipeline_loops 64VITIS_LOOP_19_1 PFN.cpp:19:22">
+        <args LoopLoc="PFN.cpp:19:22" LoopLoc-DebugLoc="File PFN.cpp Line 19 Column 22" LoopName="VITIS_LOOP_19_1" PragmaFunction="calculate_pseudoimage" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+</xilinx:hls_fe_msgs>

@@ -1,0 +1,25 @@
+{
+    "0": {
+        "name": "calculate_pseudoimage",
+        "file": "PFN.cpp",
+        "fileloc": "18",
+        "instructions": "98",
+        "total_instructions": "98",
+        "calls": "",
+        "basicblocks": "5",
+        "memory_accesses": "5",
+        "control_depth": "2",
+        "def_use_depth": "1",
+        "loads": {
+            "L": "1",
+            "T": "2"
+        },
+        "stores": {
+            "L": "2",
+            "T": "1"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}
