@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'calculate_pseudoimage'
 ================================================================
-* Date:           Fri Dec 19 19:20:36 2025
+* Date:           Fri Dec 19 23:51:07 2025
 
 * Version:        2025.2 (Build 6295257 on Nov 14 2025)
 * Project:        hls_component
@@ -17,32 +17,40 @@
 ================================================================
 + Timing: 
     * Summary: 
-    +--------+----------+----------+------------+
-    |  Clock |  Target  | Estimated| Uncertainty|
-    +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  3.140 ns|     2.70 ns|
-    +--------+----------+----------+------------+
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  10.00 ns|  10.676 ns|     2.70 ns|
+    +--------+----------+-----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
-    |  Latency (cycles) |   Latency (absolute)  |   Interval  |                    Pipeline                    |
-    |   min   |   max   |    min    |    max    |  min |  max |                      Type                      |
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
-    |     2002|     2002|  20.020 us|  20.020 us|  2002|  2002|  loop auto-rewind stp (delay=2 clock cycles(s))|
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
-        N/A
+        +-----------------------------------------------------------+------------------------------------------------+---------+---------+-----------+-----------+-----+-----+-------------------+
+        |                                                           |                                                |  Latency (cycles) |   Latency (absolute)  |  Interval |      Pipeline     |
+        |                          Instance                         |                     Module                     |   min   |   max   |    min    |    max    | min | max |        Type       |
+        +-----------------------------------------------------------+------------------------------------------------+---------+---------+-----------+-----------+-----+-----+-------------------+
+        |grp_calculate_pseudoimage_Pipeline_1_fu_117                |calculate_pseudoimage_Pipeline_1                |     1001|     1001|  10.010 us|  10.010 us|    0|    0|  loop pipeline stp|
+        |grp_calculate_pseudoimage_Pipeline_collection_loop_fu_125  |calculate_pseudoimage_Pipeline_collection_loop  |     2032|     2032|  20.320 us|  20.320 us|    0|    0|  loop pipeline stp|
+        |grp_calculate_pseudoimage_Pipeline_sum_loop_fu_138         |calculate_pseudoimage_Pipeline_sum_loop         |        ?|        ?|          ?|          ?|    0|    0|  loop pipeline stp|
+        |grp_calculate_pseudoimage_Pipeline_assign_loop_fu_149      |calculate_pseudoimage_Pipeline_assign_loop      |        ?|        ?|          ?|          ?|    0|    0|  loop pipeline stp|
+        +-----------------------------------------------------------+------------------------------------------------+---------+---------+-----------+-----------+-----+-----+-------------------+
 
         * Loop: 
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_19_1  |     2000|     2000|         3|          2|          1|  1000|       yes|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- computation_loop  |        ?|        ?|         ?|          -|          -|     ?|        no|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
 
@@ -54,108 +62,133 @@
 |       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
 +-----------------+---------+------+--------+--------+-----+
 |DSP              |        -|     -|       -|       -|    -|
-|Expression       |        -|     -|       0|   48154|    -|
+|Expression       |        -|     -|       0|      99|    -|
 |FIFO             |        -|     -|       -|       -|    -|
-|Instance         |        -|     -|       -|       -|    -|
-|Memory           |        -|     -|       -|       -|    -|
-|Multiplexer      |        -|     -|       0|      91|    -|
-|Register         |        -|     -|      80|       -|    -|
+|Instance         |        -|    37|    4327|    9253|    -|
+|Memory           |        4|     -|       0|       0|    0|
+|Multiplexer      |        -|     -|       0|     568|    -|
+|Register         |        -|     -|     707|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|      80|   48245|    0|
+|Total            |        4|    37|    5034|    9920|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      720|  1152|  290880|  145440|    0|
 +-----------------+---------+------+--------+--------+-----+
-|Utilization (%)  |        0|     0|      ~0|      33|    0|
+|Utilization (%)  |       ~0|     3|       1|       6|    0|
 +-----------------+---------+------+--------+--------+-----+
 
 + Detail: 
     * Instance: 
-    N/A
+    +-----------------------------------------------------------+------------------------------------------------+---------+----+------+------+-----+
+    |                          Instance                         |                     Module                     | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-----------------------------------------------------------+------------------------------------------------+---------+----+------+------+-----+
+    |grp_calculate_pseudoimage_Pipeline_1_fu_117                |calculate_pseudoimage_Pipeline_1                |        0|   0|    12|    61|    0|
+    |grp_calculate_pseudoimage_Pipeline_assign_loop_fu_149      |calculate_pseudoimage_Pipeline_assign_loop      |        0|  12|  2088|  3262|    0|
+    |grp_calculate_pseudoimage_Pipeline_collection_loop_fu_125  |calculate_pseudoimage_Pipeline_collection_loop  |        0|   0|   824|  4470|    0|
+    |grp_calculate_pseudoimage_Pipeline_sum_loop_fu_138         |calculate_pseudoimage_Pipeline_sum_loop         |        0|   0|   360|   272|    0|
+    |dadddsub_64ns_64ns_64_5_full_dsp_1_U39                     |dadddsub_64ns_64ns_64_5_full_dsp_1              |        0|   3|   445|   782|    0|
+    |ddiv_64ns_64ns_64_22_no_dsp_1_U34                          |ddiv_64ns_64ns_64_22_no_dsp_1                   |        0|   0|     0|     0|    0|
+    |ddiv_64ns_64ns_64_22_no_dsp_1_U35                          |ddiv_64ns_64ns_64_22_no_dsp_1                   |        0|   0|     0|     0|    0|
+    |ddiv_64ns_64ns_64_22_no_dsp_1_U36                          |ddiv_64ns_64ns_64_22_no_dsp_1                   |        0|   0|     0|     0|    0|
+    |dmul_64ns_64ns_64_5_max_dsp_1_U32                          |dmul_64ns_64ns_64_5_max_dsp_1                   |        0|  11|   299|   203|    0|
+    |dmul_64ns_64ns_64_5_max_dsp_1_U33                          |dmul_64ns_64ns_64_5_max_dsp_1                   |        0|  11|   299|   203|    0|
+    |uitodp_32ns_64_4_no_dsp_1_U37                              |uitodp_32ns_64_4_no_dsp_1                       |        0|   0|     0|     0|    0|
+    |uitodp_32ns_64_4_no_dsp_1_U38                              |uitodp_32ns_64_4_no_dsp_1                       |        0|   0|     0|     0|    0|
+    +-----------------------------------------------------------+------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                      |                                                |        0|  37|  4327|  9253|    0|
+    +-----------------------------------------------------------+------------------------------------------------+---------+----+------+------+-----+
 
     * DSP: 
     N/A
 
     * Memory: 
-    N/A
+    +-----------------+-----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |      Memory     |         Module        | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +-----------------+-----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |indices_U        |indices_RAM_AUTO_1R1W  |        2|  0|   0|    0|  1000|   32|     1|        32000|
+    |indices_first_U  |indices_RAM_AUTO_1R1W  |        2|  0|   0|    0|  1000|   32|     1|        32000|
+    +-----------------+-----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total            |                       |        4|  0|   0|    0|  2000|   64|     2|        64000|
+    +-----------------+-----------------------+---------+---+----+-----+------+-----+------+-------------+
 
     * FIFO: 
     N/A
 
     * Expression: 
-    +----------------------+----------+----+---+------+------------+------------+
-    |     Variable Name    | Operation| DSP| FF|  LUT | Bitwidth P0| Bitwidth P1|
-    +----------------------+----------+----+---+------+------------+------------+
-    |add_ln23_fu_218_p2    |         +|   0|  0|    21|          14|          14|
-    |add_ln25_fu_377_p2    |         +|   0|  0|    19|          12|           6|
-    |add_ln26_fu_403_p2    |         +|   0|  0|    15|           8|           1|
-    |i_3_fu_171_p2         |         +|   0|  0|    17|          10|           1|
-    |and_ln26_1_fu_495_p2  |       and|   0|  0|  2055|        2056|        2056|
-    |and_ln26_2_fu_563_p2  |       and|   0|  0|  2055|        2056|        2056|
-    |and_ln26_3_fu_605_p2  |       and|   0|  0|  2055|        2056|        2056|
-    |and_ln26_4_fu_433_p2  |       and|   0|  0|  2031|        2032|        2032|
-    |and_ln26_5_fu_501_p2  |       and|   0|  0|  2039|        2040|        2040|
-    |and_ln26_6_fu_569_p2  |       and|   0|  0|  2047|        2048|        2048|
-    |and_ln26_fu_427_p2    |       and|   0|  0|  2055|        2056|        2056|
-    |ap_condition_120      |       and|   0|  0|     2|           1|           1|
-    |icmp_ln19_fu_177_p2   |      icmp|   0|  0|    17|          10|           6|
-    |icmp_ln24_fu_243_p2   |      icmp|   0|  0|     9|           2|           1|
-    |or_ln26_3_fu_611_p2   |        or|   0|  0|  2055|        2056|        2056|
-    |or_ln26_5_fu_439_p2   |        or|   0|  0|  2031|        2032|        2032|
-    |or_ln26_6_fu_575_p2   |        or|   0|  0|  2047|        2048|        2048|
-    |or_ln26_fu_507_p2     |        or|   0|  0|  2039|        2040|        2040|
-    |shl_ln25_1_fu_308_p2  |       shl|   0|  0|  2171|        2032|        2032|
-    |shl_ln25_2_fu_326_p2  |       shl|   0|  0|  2171|           8|        2040|
-    |shl_ln25_3_fu_339_p2  |       shl|   0|  0|  2171|        2040|        2040|
-    |shl_ln25_4_fu_357_p2  |       shl|   0|  0|  2171|           8|        2048|
-    |shl_ln25_5_fu_371_p2  |       shl|   0|  0|  2171|        2048|        2048|
-    |shl_ln25_6_fu_387_p2  |       shl|   0|  0|  2171|           8|        2056|
-    |shl_ln25_7_fu_397_p2  |       shl|   0|  0|  2171|        2056|        2056|
-    |shl_ln25_fu_295_p2    |       shl|   0|  0|  2171|           8|        2032|
-    |ap_enable_pp0         |       xor|   0|  0|     2|           1|           2|
-    |xor_ln26_1_fu_473_p2  |       xor|   0|  0|  2040|        2041|           2|
-    |xor_ln26_2_fu_541_p2  |       xor|   0|  0|  2048|        2049|          10|
-    |xor_ln26_3_fu_599_p2  |       xor|   0|  0|  2055|        2056|          10|
-    |xor_ln26_fu_409_p2    |       xor|   0|  0|  2032|        2033|           2|
-    +----------------------+----------+----+---+------+------------+------------+
-    |Total                 |          |   0|  0| 48154|       38965|       38928|
-    +----------------------+----------+----+---+------+------------+------------+
+    +---------------------+----------+----+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+----+---+----+------------+------------+
+    |add_ln52_fu_221_p2   |         +|   0|  0|  39|          32|           1|
+    |add_ln60_fu_254_p2   |         +|   0|  0|  21|          14|          14|
+    |icmp_ln52_fu_216_p2  |      icmp|   0|  0|  39|          32|          32|
+    +---------------------+----------+----+---+----+------------+------------+
+    |Total                |          |   0|  0|  99|          78|          47|
+    +---------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +--------------------------------------------------+----+-----------+-----+-----------+
-    |                       Name                       | LUT| Input Size| Bits| Total Bits|
-    +--------------------------------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                                         |  14|          3|    1|          3|
-    |ap_condition_exit_pp0_iter0_stage1_pp0_iter1_reg  |   9|          2|    1|          2|
-    |ap_done_int                                       |   9|          2|    1|          2|
-    |ap_enable_reg_pp0_iter0                           |   9|          2|    1|          2|
-    |ap_enable_reg_pp0_iter1                           |   9|          2|    1|          2|
-    |ap_loop_exit_ready_pp0_iter1_reg                  |   9|          2|    1|          2|
-    |ap_sig_allocacmp_i_1                              |   9|          2|   10|         20|
-    |i_fu_128                                          |   9|          2|   10|         20|
-    |pseudoimage_address0_local                        |  14|          3|   14|         42|
-    +--------------------------------------------------+----+-----------+-----+-----------+
-    |Total                                             |  91|         20|   40|         95|
-    +--------------------------------------------------+----+-----------+-----+-----------+
+    +----------------------------+-----+-----------+-----+-----------+
+    |            Name            | LUT | Input Size| Bits| Total Bits|
+    +----------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                   |  160|         36|    1|         36|
+    |grp_fu_162_p0               |   14|          3|   64|        192|
+    |grp_fu_162_p1               |   14|          3|   64|        192|
+    |grp_fu_167_p0               |   14|          3|   64|        192|
+    |grp_fu_167_p1               |   14|          3|   64|        192|
+    |grp_fu_174_ce               |    9|          2|    1|          2|
+    |grp_fu_174_p0               |   14|          3|   64|        192|
+    |grp_fu_174_p1               |   14|          3|   64|        192|
+    |grp_fu_186_ce               |   14|          3|    1|          3|
+    |grp_fu_186_p0               |   20|          4|   32|        128|
+    |grp_fu_406_ce               |   14|          3|    1|          3|
+    |grp_fu_406_opcode           |   14|          3|    2|          6|
+    |grp_fu_406_p0               |   14|          3|   64|        192|
+    |grp_fu_406_p1               |   14|          3|   64|        192|
+    |i_1_fu_52                   |    9|          2|   32|         64|
+    |indices_address0            |   14|          3|   10|         30|
+    |indices_ce0                 |   14|          3|    1|          3|
+    |indices_d0                  |   14|          3|   32|         96|
+    |indices_first_address0      |   14|          3|   10|         30|
+    |indices_first_ce0           |   14|          3|    1|          3|
+    |indices_first_d0            |   14|          3|   32|         96|
+    |indices_first_we0           |   14|          3|    1|          3|
+    |indices_we0                 |   14|          3|    1|          3|
+    |pseudoimage_count_address0  |    9|          2|   14|         28|
+    |pseudoimage_count_ce0       |    9|          2|    1|          2|
+    |pseudoimage_count_we0       |    9|          2|    1|          2|
+    |pseudoimage_data_address0   |   20|          4|   20|         80|
+    |pseudoimage_data_ce0        |   20|          4|    1|          4|
+    |pseudoimage_data_ce1        |    9|          2|    1|          2|
+    |pseudoimage_data_d0         |   14|          3|  576|       1728|
+    |pseudoimage_data_we0        |   14|          3|    1|          3|
+    +----------------------------+-----+-----------+-----+-----------+
+    |Total                       |  568|        123| 1285|       3891|
+    +----------------------------+-----+-----------+-----+-----------+
 
     * Register: 
-    +--------------------------------------------------+----+----+-----+-----------+
-    |                       Name                       | FF | LUT| Bits| Const Bits|
-    +--------------------------------------------------+----+----+-----+-----------+
-    |ap_CS_fsm                                         |   2|   0|    2|          0|
-    |ap_condition_exit_pp0_iter0_stage1_pp0_iter1_reg  |   1|   0|    1|          0|
-    |ap_done_reg                                       |   1|   0|    1|          0|
-    |ap_enable_reg_pp0_iter0_reg                       |   1|   0|    1|          0|
-    |ap_enable_reg_pp0_iter1                           |   1|   0|    1|          0|
-    |ap_loop_exit_ready_pp0_iter1_reg                  |   1|   0|    1|          0|
-    |i_fu_128                                          |  10|   0|   10|          0|
-    |icmp_ln19_reg_648                                 |   1|   0|    1|          0|
-    |pointcloud_load_reg_652                           |  32|   0|   32|          0|
-    |pseudoimage_addr_reg_668                          |  14|   0|   14|          0|
-    |x_reg_658                                         |   8|   0|    8|          0|
-    |y_reg_663                                         |   8|   0|    8|          0|
-    +--------------------------------------------------+----+----+-----+-----------+
-    |Total                                             |  80|   0|   80|          0|
-    +--------------------------------------------------+----+----+-----+-----------+
+    +------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                  Name                                  | FF | LUT| Bits| Const Bits|
+    +------------------------------------------------------------------------+----+----+-----+-----------+
+    |add_ln60_reg_342                                                        |  14|   0|   14|          0|
+    |ap_CS_fsm                                                               |  35|   0|   35|          0|
+    |avg_x_reg_391                                                           |  64|   0|   64|          0|
+    |avg_y_reg_396                                                           |  64|   0|   64|          0|
+    |avg_z_reg_401                                                           |  64|   0|   64|          0|
+    |conv1_reg_365                                                           |  64|   0|   64|          0|
+    |conv2_reg_381                                                           |  64|   0|   64|          0|
+    |conv3_reg_386                                                           |  64|   0|   64|          0|
+    |grp_calculate_pseudoimage_Pipeline_1_fu_117_ap_start_reg                |   1|   0|    1|          0|
+    |grp_calculate_pseudoimage_Pipeline_assign_loop_fu_149_ap_start_reg      |   1|   0|    1|          0|
+    |grp_calculate_pseudoimage_Pipeline_collection_loop_fu_125_ap_start_reg  |   1|   0|    1|          0|
+    |grp_calculate_pseudoimage_Pipeline_sum_loop_fu_138_ap_start_reg         |   1|   0|    1|          0|
+    |i_1_fu_52                                                               |  32|   0|   32|          0|
+    |pseudoimage_count_load_reg_352                                          |  32|   0|   32|          0|
+    |reg_193                                                                 |  64|   0|   64|          0|
+    |reg_199                                                                 |  64|   0|   64|          0|
+    |tmp_reg_359                                                             |  14|   0|   20|          6|
+    |x_reg_332                                                               |  32|   0|   32|          0|
+    |y_reg_337                                                               |  32|   0|   32|          0|
+    +------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                   | 707|   0|  713|          6|
+    +------------------------------------------------------------------------+----+----+-----+-----------+
 
 
 
@@ -163,22 +196,30 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------------+-----+------+------------+-----------------------+--------------+
-|       RTL Ports      | Dir | Bits |  Protocol  |     Source Object     |    C Type    |
-+----------------------+-----+------+------------+-----------------------+--------------+
-|ap_clk                |   in|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|ap_rst                |   in|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|ap_start              |   in|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|ap_done               |  out|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|ap_idle               |  out|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|ap_ready              |  out|     1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
-|pointcloud_address0   |  out|    10|   ap_memory|             pointcloud|         array|
-|pointcloud_ce0        |  out|     1|   ap_memory|             pointcloud|         array|
-|pointcloud_q0         |   in|    32|   ap_memory|             pointcloud|         array|
-|pseudoimage_address0  |  out|    14|   ap_memory|            pseudoimage|         array|
-|pseudoimage_ce0       |  out|     1|   ap_memory|            pseudoimage|         array|
-|pseudoimage_we0       |  out|     1|   ap_memory|            pseudoimage|         array|
-|pseudoimage_d0        |  out|  2056|   ap_memory|            pseudoimage|         array|
-|pseudoimage_q0        |   in|  2056|   ap_memory|            pseudoimage|         array|
-+----------------------+-----+------+------------+-----------------------+--------------+
++----------------------------+-----+-----+------------+-----------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++----------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                      |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|ap_start                    |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|ap_done                     |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|ap_idle                     |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|ap_ready                    |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage|  return value|
+|pointcloud_address0         |  out|   10|   ap_memory|             pointcloud|         array|
+|pointcloud_ce0              |  out|    1|   ap_memory|             pointcloud|         array|
+|pointcloud_q0               |   in|  256|   ap_memory|             pointcloud|         array|
+|pseudoimage_count_address0  |  out|   14|   ap_memory|      pseudoimage_count|         array|
+|pseudoimage_count_ce0       |  out|    1|   ap_memory|      pseudoimage_count|         array|
+|pseudoimage_count_we0       |  out|    1|   ap_memory|      pseudoimage_count|         array|
+|pseudoimage_count_d0        |  out|   32|   ap_memory|      pseudoimage_count|         array|
+|pseudoimage_count_q0        |   in|   32|   ap_memory|      pseudoimage_count|         array|
+|pseudoimage_data_address0   |  out|   20|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_ce0        |  out|    1|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_we0        |  out|    1|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_d0         |  out|  576|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_q0         |   in|  576|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_address1   |  out|   20|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_ce1        |  out|    1|   ap_memory|       pseudoimage_data|         array|
+|pseudoimage_data_q1         |   in|  576|   ap_memory|       pseudoimage_data|         array|
++----------------------------+-----+-----+------------+-----------------------+--------------+
 

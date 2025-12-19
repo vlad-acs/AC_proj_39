@@ -12,57 +12,55 @@
         <FlowTarget>vivado</FlowTarget>
     </UserAssignments>
     <PerformanceEstimates>
-        <PipelineType>loop auto-rewind stp (delay=2 cycles)</PipelineType>
+        <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>3.140</EstimatedClockPeriod>
+            <EstimatedClockPeriod>10.676</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
-            <Best-caseLatency>2002</Best-caseLatency>
-            <Average-caseLatency>2002</Average-caseLatency>
-            <Worst-caseLatency>2002</Worst-caseLatency>
-            <Best-caseRealTimeLatency>20.020 us</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>20.020 us</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>20.020 us</Worst-caseRealTimeLatency>
-            <Interval-min>2002</Interval-min>
-            <Interval-max>2002</Interval-max>
+            <Best-caseLatency>undef</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <Interval-min>undef</Interval-min>
+            <Interval-max>undef</Interval-max>
             <PerformancePragma>-</PerformancePragma>
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
-            <VITIS_LOOP_19_1>
+            <computation_loop>
                 <Slack>7.30</Slack>
-                <TripCount>1000</TripCount>
+                <TripCount>undef</TripCount>
                 <isPerfectNested>0</isPerfectNested>
-                <Latency>2000</Latency>
-                <AbsoluteTimeLatency>20000</AbsoluteTimeLatency>
-                <PipelineII>2</PipelineII>
-                <PipelineDepth>3</PipelineDepth>
+                <Latency>undef</Latency>
+                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                <IterationLatency>undef</IterationLatency>
                 <PerformancePragma>-</PerformancePragma>
                 <InstanceList/>
-            </VITIS_LOOP_19_1>
+            </computation_loop>
         </SummaryOfLoopLatency>
         <SummaryOfViolations>
             <IssueType>-</IssueType>
             <ViolationType>-</ViolationType>
-            <SourceLocation>PFN.cpp:19</SourceLocation>
+            <SourceLocation>PFN.cpp:52</SourceLocation>
             <SummaryOfLoopViolations>
-                <VITIS_LOOP_19_1>
-                    <Name>VITIS_LOOP_19_1</Name>
-                    <IssueType>II Violation</IssueType>
-                    <ViolationType>Memory Dependency</ViolationType>
-                    <IterationDistance>1</IterationDistance>
-                    <SourceLocation>PFN.cpp:19</SourceLocation>
-                </VITIS_LOOP_19_1>
+                <computation_loop>
+                    <Name>computation_loop</Name>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>PFN.cpp:52</SourceLocation>
+                </computation_loop>
             </SummaryOfLoopViolations>
         </SummaryOfViolations>
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <FF>80</FF>
-            <LUT>48245</LUT>
-            <BRAM_18K>0</BRAM_18K>
-            <DSP>0</DSP>
+            <BRAM_18K>4</BRAM_18K>
+            <DSP>37</DSP>
+            <FF>5034</FF>
+            <LUT>9920</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -172,13 +170,13 @@
             <IOProtocol>ap_memory</IOProtocol>
             <IOConfig/>
             <Dir>in</Dir>
-            <Bits>32</Bits>
+            <Bits>256</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>pseudoimage_address0</name>
-            <Object>pseudoimage</Object>
+            <name>pseudoimage_count_address0</name>
+            <Object>pseudoimage_count</Object>
             <Type>array</Type>
             <Scope/>
             <IOProtocol>ap_memory</IOProtocol>
@@ -189,8 +187,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>pseudoimage_ce0</name>
-            <Object>pseudoimage</Object>
+            <name>pseudoimage_count_ce0</name>
+            <Object>pseudoimage_count</Object>
             <Type>array</Type>
             <Scope/>
             <IOProtocol>ap_memory</IOProtocol>
@@ -201,8 +199,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>pseudoimage_we0</name>
-            <Object>pseudoimage</Object>
+            <name>pseudoimage_count_we0</name>
+            <Object>pseudoimage_count</Object>
             <Type>array</Type>
             <Scope/>
             <IOProtocol>ap_memory</IOProtocol>
@@ -213,97 +211,222 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>pseudoimage_d0</name>
-            <Object>pseudoimage</Object>
+            <name>pseudoimage_count_d0</name>
+            <Object>pseudoimage_count</Object>
             <Type>array</Type>
             <Scope/>
             <IOProtocol>ap_memory</IOProtocol>
             <IOConfig/>
             <Dir>out</Dir>
-            <Bits>2056</Bits>
+            <Bits>32</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>pseudoimage_q0</name>
-            <Object>pseudoimage</Object>
+            <name>pseudoimage_count_q0</name>
+            <Object>pseudoimage_count</Object>
             <Type>array</Type>
             <Scope/>
             <IOProtocol>ap_memory</IOProtocol>
             <IOConfig/>
             <Dir>in</Dir>
-            <Bits>2056</Bits>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_address0</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>20</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_ce0</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_we0</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_d0</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>576</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_q0</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>576</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_address1</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>20</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_ce1</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pseudoimage_data_q1</name>
+            <Object>pseudoimage_data</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>576</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="2">
+        <TopModule MAX_DEPTH="3">
             <ModuleName>calculate_pseudoimage</ModuleName>
-            <BindInstances>add_ln23_fu_218_p2 icmp_ln24_fu_243_p2 i_3_fu_171_p2 shl_ln25_fu_295_p2 shl_ln25_1_fu_308_p2 shl_ln25_2_fu_326_p2 shl_ln25_3_fu_339_p2 shl_ln25_4_fu_357_p2 shl_ln25_5_fu_371_p2 add_ln25_fu_377_p2 shl_ln25_6_fu_387_p2 shl_ln25_7_fu_397_p2 add_ln26_fu_403_p2 xor_ln26_fu_409_p2 and_ln26_fu_427_p2 and_ln26_4_fu_433_p2 or_ln26_5_fu_439_p2 xor_ln26_1_fu_473_p2 and_ln26_1_fu_495_p2 and_ln26_5_fu_501_p2 or_ln26_fu_507_p2 xor_ln26_2_fu_541_p2 and_ln26_2_fu_563_p2 and_ln26_6_fu_569_p2 or_ln26_6_fu_575_p2 xor_ln26_3_fu_599_p2 and_ln26_3_fu_605_p2 or_ln26_3_fu_611_p2 icmp_ln19_fu_177_p2</BindInstances>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_calculate_pseudoimage_Pipeline_1_fu_117</InstName>
+                    <ModuleName>calculate_pseudoimage_Pipeline_1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>117</ID>
+                    <BindInstances>add_ln29_fu_72_p2 icmp_ln29_fu_78_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_calculate_pseudoimage_Pipeline_collection_loop_fu_125</InstName>
+                    <ModuleName>calculate_pseudoimage_Pipeline_collection_loop</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>125</ID>
+                    <BindInstances>icmp_ln32_fu_217_p2 add_ln32_fu_223_p2 add_ln486_fu_271_p2 sub_ln71_fu_285_p2 select_ln71_fu_295_p3 lshr_ln71_fu_311_p2 shl_ln71_fu_317_p2 select_ln71_1_fu_343_p3 add_ln486_1_fu_533_p2 sub_ln71_1_fu_547_p2 select_ln71_2_fu_556_p3 lshr_ln71_1_fu_572_p2 shl_ln71_1_fu_578_p2 val_fu_604_p3 add_ln486_2_fu_389_p2 sub_ln71_2_fu_403_p2 select_ln71_4_fu_413_p3 lshr_ln71_2_fu_429_p2 shl_ln71_2_fu_435_p2 select_ln71_5_fu_461_p3 add_ln486_3_fu_632_p2 sub_ln71_3_fu_646_p2 select_ln71_6_fu_655_p3 lshr_ln71_3_fu_671_p2 shl_ln71_3_fu_677_p2 val_1_fu_703_p3 add_ln36_fu_723_p2 icmp_ln37_fu_755_p2 icmp_ln38_fu_761_p2 pillar_count_1_fu_770_p2 add_ln43_fu_785_p2 add_ln48_fu_796_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_calculate_pseudoimage_Pipeline_sum_loop_fu_138</InstName>
+                    <ModuleName>calculate_pseudoimage_Pipeline_sum_loop</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>138</ID>
+                    <BindInstances>icmp_ln60_fu_139_p2 add_ln60_fu_145_p2 add_ln61_fu_155_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_calculate_pseudoimage_Pipeline_assign_loop_fu_149</InstName>
+                    <ModuleName>calculate_pseudoimage_Pipeline_assign_loop</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>149</ID>
+                    <BindInstances>icmp_ln69_fu_153_p2 add_ln69_fu_159_p2 add_ln70_fu_169_p2 dsub_64ns_64ns_64_5_full_dsp_1_U19 dsub_64ns_64ns_64_5_full_dsp_1_U20 dsub_64ns_64ns_64_5_full_dsp_1_U21 dsub_64ns_64ns_64_5_full_dsp_1_U22</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>indices_U indices_first_U icmp_ln52_fu_216_p2 add_ln52_fu_221_p2 add_ln60_fu_254_p2 uitodp_32ns_64_4_no_dsp_1_U37 ddiv_64ns_64ns_64_22_no_dsp_1_U34 ddiv_64ns_64ns_64_22_no_dsp_1_U35 ddiv_64ns_64ns_64_22_no_dsp_1_U36 uitodp_32ns_64_4_no_dsp_1_U37 dmul_64ns_64ns_64_5_max_dsp_1_U32 dmul_64ns_64ns_64_5_max_dsp_1_U32 uitodp_32ns_64_4_no_dsp_1_U38 dmul_64ns_64ns_64_5_max_dsp_1_U33 dmul_64ns_64ns_64_5_max_dsp_1_U33</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>calculate_pseudoimage</Name>
+            <Name>calculate_pseudoimage_Pipeline_1</Name>
             <Loops>
-                <VITIS_LOOP_19_1/>
+                <Loop1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>3.140</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.394</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>2002</Best-caseLatency>
-                    <Average-caseLatency>2002</Average-caseLatency>
-                    <Worst-caseLatency>2002</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>20.020 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>20.020 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>20.020 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>2002</PipelineInitiationInterval>
-                    <PipelineType>loop auto-rewind stp (delay=2 clock cycles(s))stp (delay=2 clock cycles(s))</PipelineType>
+                    <Best-caseLatency>1001</Best-caseLatency>
+                    <Average-caseLatency>1001</Average-caseLatency>
+                    <Worst-caseLatency>1001</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>10.010 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>10.010 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>10.010 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1000</PipelineInitiationInterval>
+                    <PipelineType>loop pipeline stpstp (delay=0 clock cycles(s))</PipelineType>
                     <PerformancePragma>-</PerformancePragma>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_19_1>
-                        <Name>VITIS_LOOP_19_1</Name>
+                    <Loop1>
+                        <Name>Loop 1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>1000</TripCount>
                         <isPerfectNested>0</isPerfectNested>
-                        <Latency>2000</Latency>
-                        <AbsoluteTimeLatency>20.000 us</AbsoluteTimeLatency>
-                        <PipelineII>2</PipelineII>
-                        <PipelineDepth>3</PipelineDepth>
+                        <Latency>999</Latency>
+                        <AbsoluteTimeLatency>9.990 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <PerformancePragma>-</PerformancePragma>
                         <InstanceList/>
-                    </VITIS_LOOP_19_1>
+                    </Loop1>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>PFN.cpp:19</SourceLocation>
+                    <SourceLocation>PFN.cpp:29</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_19_1>
-                            <Name>VITIS_LOOP_19_1</Name>
-                            <IssueType>II Violation</IssueType>
-                            <ViolationType>Memory Dependency</ViolationType>
-                            <IterationDistance>1</IterationDistance>
-                            <SourceLocation>PFN.cpp:19</SourceLocation>
-                        </VITIS_LOOP_19_1>
+                        <Loop1>
+                            <Name>Loop 1</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>PFN.cpp:29</SourceLocation>
+                        </Loop1>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>80</FF>
+                    <FF>12</FF>
                     <AVAIL_FF>290880</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>48245</LUT>
+                    <LUT>61</LUT>
                     <AVAIL_LUT>145440</AVAIL_LUT>
-                    <UTIL_LUT>33</UTIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>720</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
@@ -316,55 +439,390 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln23_fu_218_p2" SOURCE="PFN.cpp:23" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln23" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln24_fu_243_p2" SOURCE="PFN.cpp:24" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln24" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="i_3_fu_171_p2" SOURCE="PFN.cpp:19" STORAGESUBTYPE="" URAM="0" VARIABLE="i_3" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_fu_295_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_1_fu_308_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_2_fu_326_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_2" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_3_fu_339_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_3" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_4_fu_357_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_4" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_5_fu_371_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_5" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln25_fu_377_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln25" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_6_fu_387_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_6" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln25_7_fu_397_p2" SOURCE="PFN.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln25_7" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln26_fu_403_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln26" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln26_fu_409_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln26" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_fu_427_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_4_fu_433_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_4" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="or" PRAGMA="" RTLNAME="or_ln26_5_fu_439_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln26_5" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln26_1_fu_473_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln26_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_1_fu_495_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_5_fu_501_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_5" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="or" PRAGMA="" RTLNAME="or_ln26_fu_507_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln26" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln26_2_fu_541_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln26_2" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_2_fu_563_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_2" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_6_fu_569_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_6" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="or" PRAGMA="" RTLNAME="or_ln26_6_fu_575_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln26_6" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln26_3_fu_599_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln26_3" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="and" PRAGMA="" RTLNAME="and_ln26_3_fu_605_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln26_3" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="or" PRAGMA="" RTLNAME="or_ln26_3_fu_611_p2" SOURCE="PFN.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln26_3" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln19_fu_177_p2" SOURCE="PFN.cpp:19" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln19" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln29_fu_72_p2" SOURCE="PFN.cpp:29" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln29" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="Loop 1" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln29_fu_78_p2" SOURCE="PFN.cpp:29" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln29" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>calculate_pseudoimage_Pipeline_collection_loop</Name>
+            <Loops>
+                <collection_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.926</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2032</Best-caseLatency>
+                    <Average-caseLatency>2032</Average-caseLatency>
+                    <Worst-caseLatency>2032</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.320 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>20.320 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>20.320 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2002</PipelineInitiationInterval>
+                    <PipelineType>loop pipeline stpstp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <collection_loop>
+                        <Name>collection_loop</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>1000</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>2030</Latency>
+                        <AbsoluteTimeLatency>20.300 us</AbsoluteTimeLatency>
+                        <PipelineII>2</PipelineII>
+                        <PipelineDepth>33</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </collection_loop>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>PFN.cpp:32</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <collection_loop>
+                            <Name>collection_loop</Name>
+                            <IssueType>II Violation</IssueType>
+                            <ViolationType>Memory Dependency</ViolationType>
+                            <IterationDistance>1</IterationDistance>
+                            <SourceLocation>PFN.cpp:32</SourceLocation>
+                        </collection_loop>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>824</FF>
+                    <AVAIL_FF>290880</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>4470</LUT>
+                    <AVAIL_LUT>145440</AVAIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>720</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1152</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="collection_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln32_fu_217_p2" SOURCE="PFN.cpp:32" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln32" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln32_fu_223_p2" SOURCE="PFN.cpp:32" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln32" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln486_fu_271_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:486" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln486" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln71_fu_285_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln71" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_fu_295_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln71_fu_311_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln71_fu_317_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_1_fu_343_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln486_1_fu_533_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:486" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln486_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln71_1_fu_547_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln71_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_2_fu_556_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln71_1_fu_572_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln71_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln71_1_fu_578_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln71_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="val_fu_604_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="val" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln486_2_fu_389_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:486" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln486_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln71_2_fu_403_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln71_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_4_fu_413_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln71_2_fu_429_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln71_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln71_2_fu_435_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln71_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_5_fu_461_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln486_3_fu_632_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:486" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln486_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln71_3_fu_646_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln71_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_6_fu_655_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln71_3_fu_671_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln71_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="collection_loop" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln71_3_fu_677_p2" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln71_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="collection_loop" OPTYPE="select" PRAGMA="" RTLNAME="val_1_fu_703_p3" SOURCE="C:\scratch\2025.2\hls_product\666\2025.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="val_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln36_fu_723_p2" SOURCE="PFN.cpp:36" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln36" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="collection_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln37_fu_755_p2" SOURCE="PFN.cpp:37" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln37" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="collection_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln38_fu_761_p2" SOURCE="PFN.cpp:38" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln38" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="pillar_count_1_fu_770_p2" SOURCE="PFN.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="pillar_count_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_fu_785_p2" SOURCE="PFN.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="collection_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln48_fu_796_p2" SOURCE="PFN.cpp:48" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln48" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>calculate_pseudoimage_Pipeline_sum_loop</Name>
+            <Loops>
+                <sum_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>10.676</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>loop pipeline stpstp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <sum_loop>
+                        <Name>sum_loop</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>4</PipelineII>
+                        <PipelineDepth>8</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </sum_loop>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>Timing Violation</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>PFN.cpp:57</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <sum_loop>
+                            <Name>sum_loop</Name>
+                            <IssueType>II Violation</IssueType>
+                            <ViolationType>Memory Dependency</ViolationType>
+                            <IterationDistance>1</IterationDistance>
+                            <SourceLocation>PFN.cpp:60</SourceLocation>
+                        </sum_loop>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>360</FF>
+                    <AVAIL_FF>290880</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>272</LUT>
+                    <AVAIL_LUT>145440</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>720</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1152</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="sum_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln60_fu_139_p2" SOURCE="PFN.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln60" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="sum_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln60_fu_145_p2" SOURCE="PFN.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln60" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="sum_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln61_fu_155_p2" SOURCE="PFN.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln61" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>calculate_pseudoimage_Pipeline_assign_loop</Name>
+            <Loops>
+                <assign_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.069</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>loop pipeline stpstp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <assign_loop>
+                        <Name>assign_loop</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>6</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </assign_loop>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>PFN.cpp:69</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <assign_loop>
+                            <Name>assign_loop</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>PFN.cpp:69</SourceLocation>
+                        </assign_loop>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>12</DSP>
+                    <AVAIL_DSP>1152</AVAIL_DSP>
+                    <UTIL_DSP>1</UTIL_DSP>
+                    <FF>2088</FF>
+                    <AVAIL_FF>290880</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>3262</LUT>
+                    <AVAIL_LUT>145440</AVAIL_LUT>
+                    <UTIL_LUT>2</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>720</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="assign_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln69_fu_153_p2" SOURCE="PFN.cpp:69" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln69" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="assign_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln69_fu_159_p2" SOURCE="PFN.cpp:69" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln69" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="assign_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln70_fu_169_p2" SOURCE="PFN.cpp:70" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln70" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dsub" DSP="3" ID="" IMPL="fulldsp" LATENCY="4" LOOP="assign_loop" OPTYPE="dsub" PRAGMA="" RTLNAME="dsub_64ns_64ns_64_5_full_dsp_1_U19" SOURCE="PFN.cpp:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dsub" DSP="3" ID="" IMPL="fulldsp" LATENCY="4" LOOP="assign_loop" OPTYPE="dsub" PRAGMA="" RTLNAME="dsub_64ns_64ns_64_5_full_dsp_1_U20" SOURCE="PFN.cpp:72" STORAGESUBTYPE="" URAM="0" VARIABLE="sub2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dsub" DSP="3" ID="" IMPL="fulldsp" LATENCY="4" LOOP="assign_loop" OPTYPE="dsub" PRAGMA="" RTLNAME="dsub_64ns_64ns_64_5_full_dsp_1_U21" SOURCE="PFN.cpp:74" STORAGESUBTYPE="" URAM="0" VARIABLE="sub3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dsub" DSP="3" ID="" IMPL="fulldsp" LATENCY="4" LOOP="assign_loop" OPTYPE="dsub" PRAGMA="" RTLNAME="dsub_64ns_64ns_64_5_full_dsp_1_U22" SOURCE="PFN.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="sub4" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>calculate_pseudoimage</Name>
+            <Loops>
+                <computation_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>10.676</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <computation_loop>
+                        <Name>computation_loop</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>undef</IterationLatency>
+                        <PipelineDepth>undef</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList>
+                            <Instance>grp_calculate_pseudoimage_Pipeline_sum_loop_fu_138</Instance>
+                            <Instance>grp_calculate_pseudoimage_Pipeline_assign_loop_fu_149</Instance>
+                        </InstanceList>
+                    </computation_loop>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>PFN.cpp:52</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <computation_loop>
+                            <Name>computation_loop</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>PFN.cpp:52</SourceLocation>
+                        </computation_loop>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>4</BRAM_18K>
+                    <AVAIL_BRAM>720</AVAIL_BRAM>
+                    <UTIL_BRAM>~0</UTIL_BRAM>
+                    <DSP>37</DSP>
+                    <AVAIL_DSP>1152</AVAIL_DSP>
+                    <UTIL_DSP>3</UTIL_DSP>
+                    <FF>5034</FF>
+                    <AVAIL_FF>290880</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>9920</LUT>
+                    <AVAIL_LUT>145440</AVAIL_LUT>
+                    <UTIL_LUT>6</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="indices_U" SOURCE="PFN.cpp:29" STORAGESIZE="32 1000 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_1p array" URAM="0" VARIABLE="indices" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="indices_first_U" SOURCE="PFN.cpp:29" STORAGESIZE="32 1000 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_1p array" URAM="0" VARIABLE="indices_first" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="computation_loop" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln52_fu_216_p2" SOURCE="PFN.cpp:52" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln52" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="computation_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln52_fu_221_p2" SOURCE="PFN.cpp:52" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln52" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="computation_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln60_fu_254_p2" SOURCE="PFN.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln60" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op uitodp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="computation_loop" OPTYPE="uitodp" PRAGMA="" RTLNAME="uitodp_32ns_64_4_no_dsp_1_U37" SOURCE="PFN.cpp:66" STORAGESUBTYPE="" URAM="0" VARIABLE="conv1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op ddiv" DSP="0" ID="" IMPL="fabric" LATENCY="21" LOOP="computation_loop" OPTYPE="ddiv" PRAGMA="" RTLNAME="ddiv_64ns_64ns_64_22_no_dsp_1_U34" SOURCE="PFN.cpp:66" STORAGESUBTYPE="" URAM="0" VARIABLE="avg_x" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op ddiv" DSP="0" ID="" IMPL="fabric" LATENCY="21" LOOP="computation_loop" OPTYPE="ddiv" PRAGMA="" RTLNAME="ddiv_64ns_64ns_64_22_no_dsp_1_U35" SOURCE="PFN.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="avg_y" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op ddiv" DSP="0" ID="" IMPL="fabric" LATENCY="21" LOOP="computation_loop" OPTYPE="ddiv" PRAGMA="" RTLNAME="ddiv_64ns_64ns_64_22_no_dsp_1_U36" SOURCE="PFN.cpp:68" STORAGESUBTYPE="" URAM="0" VARIABLE="avg_z" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op uitodp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="computation_loop" OPTYPE="uitodp" PRAGMA="" RTLNAME="uitodp_32ns_64_4_no_dsp_1_U37" SOURCE="PFN.cpp:74" STORAGESUBTYPE="" URAM="0" VARIABLE="conv2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dmul" DSP="11" ID="" IMPL="maxdsp" LATENCY="4" LOOP="computation_loop" OPTYPE="dmul" PRAGMA="" RTLNAME="dmul_64ns_64ns_64_5_max_dsp_1_U32" SOURCE="PFN.cpp:74" STORAGESUBTYPE="" URAM="0" VARIABLE="mul" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dmul" DSP="11" ID="" IMPL="maxdsp" LATENCY="4" LOOP="computation_loop" OPTYPE="dmul" PRAGMA="" RTLNAME="dmul_64ns_64ns_64_5_max_dsp_1_U32" SOURCE="PFN.cpp:74" STORAGESUBTYPE="" URAM="0" VARIABLE="div5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op uitodp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="computation_loop" OPTYPE="uitodp" PRAGMA="" RTLNAME="uitodp_32ns_64_4_no_dsp_1_U38" SOURCE="PFN.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="conv3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dmul" DSP="11" ID="" IMPL="maxdsp" LATENCY="4" LOOP="computation_loop" OPTYPE="dmul" PRAGMA="" RTLNAME="dmul_64ns_64ns_64_5_max_dsp_1_U33" SOURCE="PFN.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="mul1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op dmul" DSP="11" ID="" IMPL="maxdsp" LATENCY="4" LOOP="computation_loop" OPTYPE="dmul" PRAGMA="" RTLNAME="dmul_64ns_64ns_64_5_max_dsp_1_U33" SOURCE="PFN.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="div6" VISIBLE="true"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
     <FIFOInformation/>
     <UserConfigCommands/>
     <Args>
-        <Arg ArgName="pointcloud" index="0" direction="in" srcType="point*" srcSize="32">
+        <Arg ArgName="pointcloud" index="0" direction="in" srcType="cloud_point const *" srcSize="256">
             <hwRefs>
                 <hwRef type="port" interface="pointcloud_address0" name="pointcloud_address0" usage="address" direction="out"/>
                 <hwRef type="port" interface="pointcloud_ce0" name="pointcloud_ce0" usage="control" direction="out"/>
                 <hwRef type="port" interface="pointcloud_q0" name="pointcloud_q0" usage="data" direction="in"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="pseudoimage" index="1" direction="inout" srcType="pillar*" srcSize="2056">
+        <Arg ArgName="pseudoimage" index="1" direction="inout" srcType="pillar*" srcSize="36928">
             <hwRefs>
-                <hwRef type="port" interface="pseudoimage_address0" name="pseudoimage_address0" usage="address" direction="out"/>
-                <hwRef type="port" interface="pseudoimage_ce0" name="pseudoimage_ce0" usage="control" direction="out"/>
-                <hwRef type="port" interface="pseudoimage_we0" name="pseudoimage_we0" usage="control" direction="out"/>
-                <hwRef type="port" interface="pseudoimage_d0" name="pseudoimage_d0" usage="data" direction="out"/>
-                <hwRef type="port" interface="pseudoimage_q0" name="pseudoimage_q0" usage="data" direction="in"/>
+                <hwRef type="port" interface="pseudoimage_count_address0" name="pseudoimage_count_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_count_ce0" name="pseudoimage_count_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_count_we0" name="pseudoimage_count_we0" usage="control" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_count_d0" name="pseudoimage_count_d0" usage="data" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_count_q0" name="pseudoimage_count_q0" usage="data" direction="in"/>
+                <hwRef type="port" interface="pseudoimage_data_address0" name="pseudoimage_data_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_ce0" name="pseudoimage_data_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_we0" name="pseudoimage_data_we0" usage="control" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_d0" name="pseudoimage_data_d0" usage="data" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_q0" name="pseudoimage_data_q0" usage="data" direction="in"/>
+                <hwRef type="port" interface="pseudoimage_data_address1" name="pseudoimage_data_address1" usage="address" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_ce1" name="pseudoimage_data_ce1" usage="control" direction="out"/>
+                <hwRef type="port" interface="pseudoimage_data_q1" name="pseudoimage_data_q1" usage="data" direction="in"/>
             </hwRefs>
         </Arg>
     </Args>
@@ -416,7 +874,7 @@
                 <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pointcloud"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="pointcloud_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="32">
+        <Interface InterfaceName="pointcloud_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="256">
             <portMaps>
                 <portMap portMapName="pointcloud_q0">DATA</portMap>
             </portMaps>
@@ -427,34 +885,89 @@
                 <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pointcloud"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="pseudoimage_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="14">
+        <Interface InterfaceName="pseudoimage_count_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="14">
             <portMaps>
-                <portMap portMapName="pseudoimage_address0">DATA</portMap>
+                <portMap portMapName="pseudoimage_count_address0">DATA</portMap>
             </portMaps>
             <ports>
-                <port>pseudoimage_address0</port>
+                <port>pseudoimage_count_address0</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="pseudoimage_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="2056">
+        <Interface InterfaceName="pseudoimage_count_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="32">
             <portMaps>
-                <portMap portMapName="pseudoimage_d0">DATA</portMap>
+                <portMap portMapName="pseudoimage_count_d0">DATA</portMap>
             </portMaps>
             <ports>
-                <port>pseudoimage_d0</port>
+                <port>pseudoimage_count_d0</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="pseudoimage_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="2056">
+        <Interface InterfaceName="pseudoimage_count_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="32">
             <portMaps>
-                <portMap portMapName="pseudoimage_q0">DATA</portMap>
+                <portMap portMapName="pseudoimage_count_q0">DATA</portMap>
             </portMaps>
             <ports>
-                <port>pseudoimage_q0</port>
+                <port>pseudoimage_count_q0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pseudoimage_data_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="20">
+            <portMaps>
+                <portMap portMapName="pseudoimage_data_address0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pseudoimage_data_address0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pseudoimage_data_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="576">
+            <portMaps>
+                <portMap portMapName="pseudoimage_data_d0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pseudoimage_data_d0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pseudoimage_data_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="576">
+            <portMaps>
+                <portMap portMapName="pseudoimage_data_q0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pseudoimage_data_q0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pseudoimage_data_address1" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="20">
+            <portMaps>
+                <portMap portMapName="pseudoimage_data_address1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pseudoimage_data_address1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pseudoimage_data_q1" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="576">
+            <portMaps>
+                <portMap portMapName="pseudoimage_data_q1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pseudoimage_data_q1</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="pseudoimage"/>
@@ -467,10 +980,15 @@
                 <table>
                     <keys size="3">Port, Direction, Bitwidth</keys>
                     <column name="pointcloud_address0">out, 10</column>
-                    <column name="pointcloud_q0">in, 32</column>
-                    <column name="pseudoimage_address0">out, 14</column>
-                    <column name="pseudoimage_d0">out, 2056</column>
-                    <column name="pseudoimage_q0">in, 2056</column>
+                    <column name="pointcloud_q0">in, 256</column>
+                    <column name="pseudoimage_count_address0">out, 14</column>
+                    <column name="pseudoimage_count_d0">out, 32</column>
+                    <column name="pseudoimage_count_q0">in, 32</column>
+                    <column name="pseudoimage_data_address0">out, 20</column>
+                    <column name="pseudoimage_data_address1">out, 20</column>
+                    <column name="pseudoimage_data_d0">out, 576</column>
+                    <column name="pseudoimage_data_q0">in, 576</column>
+                    <column name="pseudoimage_data_q1">in, 576</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
@@ -488,7 +1006,7 @@
             <item name="Top Function Arguments">
                 <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
-                    <column name="pointcloud">in, point*</column>
+                    <column name="pointcloud">in, cloud_point const *</column>
                     <column name="pseudoimage">inout, pillar*</column>
                 </table>
             </item>
@@ -498,11 +1016,19 @@
                     <column name="pointcloud">pointcloud_address0, port, offset</column>
                     <column name="pointcloud">pointcloud_ce0, port, </column>
                     <column name="pointcloud">pointcloud_q0, port, </column>
-                    <column name="pseudoimage">pseudoimage_address0, port, offset</column>
-                    <column name="pseudoimage">pseudoimage_ce0, port, </column>
-                    <column name="pseudoimage">pseudoimage_we0, port, </column>
-                    <column name="pseudoimage">pseudoimage_d0, port, </column>
-                    <column name="pseudoimage">pseudoimage_q0, port, </column>
+                    <column name="pseudoimage">pseudoimage_count_address0, port, offset</column>
+                    <column name="pseudoimage">pseudoimage_count_ce0, port, </column>
+                    <column name="pseudoimage">pseudoimage_count_we0, port, </column>
+                    <column name="pseudoimage">pseudoimage_count_d0, port, </column>
+                    <column name="pseudoimage">pseudoimage_count_q0, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_address0, port, offset</column>
+                    <column name="pseudoimage">pseudoimage_data_ce0, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_we0, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_d0, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_q0, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_address1, port, offset</column>
+                    <column name="pseudoimage">pseudoimage_data_ce1, port, </column>
+                    <column name="pseudoimage">pseudoimage_data_q1, port, </column>
                 </table>
             </item>
         </section>
@@ -510,6 +1036,9 @@
     <ResolutionUrl key="ZZZ">docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
     <PragmaReport/>
     <AutoPragmaReport>
-        <AutoPragma type="pipeline" parentFunction="calculate_pseudoimage" options="" pragmaLocId="PFN.cpp:19:0" pragmaLocOpt="calculate_pseudoimage/VITIS_LOOP_19_1" srcTcl="config_compile -pipeline_loops 64" srcIni="syn.compile.pipeline_loops=64" srcPragmaType="" srcPragmaLoc="syn.compile.pipeline_loops=64" srcPragmaSource="config" srcPragmaSourceDesc="syn.compile.pipeline_loops=64" srcIsDirective="0" srcIsSlxDirective="0" srcIsCsimDirective="0" directiveIni="syn.directive.pipeline=calculate_pseudoimage/VITIS_LOOP_19_1 " loopName="VITIS_LOOP_19_1" loopLoc="PFN.cpp:19:22"/>
+        <AutoPragma type="pipeline" parentFunction="calculate_pseudoimage" options="" pragmaLocId="PFN.cpp:29:0" pragmaLocOpt="calculate_pseudoimage/anonymous" srcTcl="config_compile -pipeline_loops 64" srcIni="syn.compile.pipeline_loops=64" srcPragmaType="" srcPragmaLoc="syn.compile.pipeline_loops=64" srcPragmaSource="config" srcPragmaSourceDesc="syn.compile.pipeline_loops=64" srcIsDirective="0" srcIsSlxDirective="0" srcIsCsimDirective="0" directiveIni="syn.directive.pipeline=calculate_pseudoimage/anonymous " loopName="anonymous" loopLoc="PFN.cpp:29:35"/>
+        <AutoPragma type="pipeline" parentFunction="calculate_pseudoimage" options="" pragmaLocId="PFN.cpp:32:0" pragmaLocOpt="calculate_pseudoimage/collection_loop" srcTcl="config_compile -pipeline_loops 64" srcIni="syn.compile.pipeline_loops=64" srcPragmaType="" srcPragmaLoc="syn.compile.pipeline_loops=64" srcPragmaSource="config" srcPragmaSourceDesc="syn.compile.pipeline_loops=64" srcIsDirective="0" srcIsSlxDirective="0" srcIsCsimDirective="0" directiveIni="syn.directive.pipeline=calculate_pseudoimage/collection_loop " loopName="collection_loop" loopLoc="PFN.cpp:32:22"/>
+        <AutoPragma type="pipeline" parentFunction="calculate_pseudoimage" options="" pragmaLocId="PFN.cpp:69:0" pragmaLocOpt="calculate_pseudoimage/assign_loop" srcTcl="config_compile -pipeline_loops 64" srcIni="syn.compile.pipeline_loops=64" srcPragmaType="" srcPragmaLoc="syn.compile.pipeline_loops=64" srcPragmaSource="config" srcPragmaSourceDesc="syn.compile.pipeline_loops=64" srcIsDirective="0" srcIsSlxDirective="0" srcIsCsimDirective="0" directiveIni="syn.directive.pipeline=calculate_pseudoimage/assign_loop " loopName="assign_loop" loopLoc="PFN.cpp:69:22"/>
+        <AutoPragma type="pipeline" parentFunction="calculate_pseudoimage" options="" pragmaLocId="PFN.cpp:60:0" pragmaLocOpt="calculate_pseudoimage/sum_loop" srcTcl="config_compile -pipeline_loops 64" srcIni="syn.compile.pipeline_loops=64" srcPragmaType="" srcPragmaLoc="syn.compile.pipeline_loops=64" srcPragmaSource="config" srcPragmaSourceDesc="syn.compile.pipeline_loops=64" srcIsDirective="0" srcIsSlxDirective="0" srcIsCsimDirective="0" directiveIni="syn.directive.pipeline=calculate_pseudoimage/sum_loop " loopName="sum_loop" loopLoc="PFN.cpp:60:19"/>
     </AutoPragmaReport>
 </profile>

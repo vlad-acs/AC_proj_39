@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'calculate_pseudoimage'
 ================================================================
-* Date:           Fri Dec 19 19:20:35 2025
+* Date:           Fri Dec 19 23:51:05 2025
 
 * Version:        2025.2 (Build 6295257 on Nov 14 2025)
 * Project:        hls_component
@@ -17,32 +17,32 @@
 ================================================================
 + Timing: 
     * Summary: 
-    +--------+----------+----------+------------+
-    |  Clock |  Target  | Estimated| Uncertainty|
-    +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  3.140 ns|     2.70 ns|
-    +--------+----------+----------+------------+
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  10.00 ns|  10.676 ns|     2.70 ns|
+    +--------+----------+-----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
-    |  Latency (cycles) |   Latency (absolute)  |   Interval  |                    Pipeline                    |
-    |   min   |   max   |    min    |    max    |  min |  max |                      Type                      |
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
-    |     2002|     2002|  20.020 us|  20.020 us|  2002|  2002|  loop auto-rewind stp (delay=2 clock cycles(s))|
-    +---------+---------+-----------+-----------+------+------+------------------------------------------------+
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_19_1  |     2000|     2000|         3|          2|          1|  1000|       yes|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- computation_loop  |        ?|        ?|         ?|          -|          -|     ?|        no|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -54,10 +54,10 @@ ExposeGlobal: 0
 ============================================================
 IsTopModel: 1
 ResetActiveHigh: 1
-IsCombinational: 2
+IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
-HasMFsm: 2
+HasMFsm: 0
 HasVarLatency: 1
 IsPipeline: 0
 IsRtlPipelined: 0
@@ -66,130 +66,272 @@ IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
-+ Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 2, depth = 3
-
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 3
-* Pipeline : 1
-  Pipeline-0 : II = 2, D = 3, States = { 1 2 3 }
+* Number of FSM states : 35
+* Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
 2 --> 3 
-3 --> 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 6 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 2.39>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [PFN.cpp:19]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%spectopmodule_ln18 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [PFN.cpp:18]   --->   Operation 7 'spectopmodule' 'spectopmodule_ln18' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %pointcloud, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %pointcloud"   --->   Operation 9 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i2056 %pseudoimage, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2056 %pseudoimage"   --->   Operation 11 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.53ns)   --->   "%store_ln19 = store i10 0, i10 %i" [PFN.cpp:19]   --->   Operation 12 'store' 'store_ln19' <Predicate = true> <Delay = 0.53>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln19 = br void %for.body.split" [PFN.cpp:19]   --->   Operation 13 'br' 'br_ln19' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%i_1 = load i10 %i" [PFN.cpp:19]   --->   Operation 14 'load' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln19 = zext i10 %i_1" [PFN.cpp:19]   --->   Operation 15 'zext' 'zext_ln19' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%pointcloud_addr = getelementptr i32 %pointcloud, i64 0, i64 %zext_ln19" [PFN.cpp:20]   --->   Operation 16 'getelementptr' 'pointcloud_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [2/2] (0.00ns)   --->   "%pointcloud_load = load i10 %pointcloud_addr" [PFN.cpp:20]   --->   Operation 17 'load' 'pointcloud_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
-ST_1 : Operation 18 [1/1] (1.31ns)   --->   "%i_3 = add i10 %i_1, i10 1" [PFN.cpp:19]   --->   Operation 18 'add' 'i_3' <Predicate = true> <Delay = 1.31> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.31> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 19 [1/1] (1.31ns)   --->   "%icmp_ln19 = icmp_eq  i10 %i_1, i10 999" [PFN.cpp:19]   --->   Operation 19 'icmp' 'icmp_ln19' <Predicate = true> <Delay = 1.31> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.31> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 20 [1/1] (0.53ns)   --->   "%store_ln19 = store i10 %i_3, i10 %i" [PFN.cpp:19]   --->   Operation 20 'store' 'store_ln19' <Predicate = true> <Delay = 0.53>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln19 = br i1 %icmp_ln19, void %for.body.split, void %for.end" [PFN.cpp:19]   --->   Operation 21 'br' 'br_ln19' <Predicate = true> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 0.53>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%i_1 = alloca i32 1" [PFN.cpp:52]   --->   Operation 36 'alloca' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%avg_x_1_loc = alloca i64 1"   --->   Operation 37 'alloca' 'avg_x_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%avg_y_1_loc = alloca i64 1"   --->   Operation 38 'alloca' 'avg_y_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%avg_z_1_loc = alloca i64 1"   --->   Operation 39 'alloca' 'avg_z_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%pillar_count_loc = alloca i64 1"   --->   Operation 40 'alloca' 'pillar_count_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%indices = alloca i64 1" [PFN.cpp:29]   --->   Operation 41 'alloca' 'indices' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%indices_first = alloca i64 1" [PFN.cpp:29]   --->   Operation 42 'alloca' 'indices_first' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_1 : Operation 43 [2/2] (0.00ns)   --->   "%call_ln0 = call void @calculate_pseudoimage_Pipeline_1, i32 %indices, i32 %indices_first"   --->   Operation 43 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_1 : Operation 44 [1/1] (0.53ns)   --->   "%store_ln52 = store i32 0, i32 %i_1" [PFN.cpp:52]   --->   Operation 44 'store' 'store_ln52' <Predicate = true> <Delay = 0.53>
 
-State 2 <SV = 1> <Delay = 1.38>
-ST_2 : Operation 22 [1/2] ( I:0.00ns O:0.00ns )   --->   "%pointcloud_load = load i10 %pointcloud_addr" [PFN.cpp:20]   --->   Operation 22 'load' 'pointcloud_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%x = trunc i32 %pointcloud_load" [PFN.cpp:20]   --->   Operation 23 'trunc' 'x' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%trunc_ln20_1 = trunc i32 %pointcloud_load" [PFN.cpp:20]   --->   Operation 24 'trunc' 'trunc_ln20_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%y = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %pointcloud_load, i32 8, i32 15" [PFN.cpp:21]   --->   Operation 25 'partselect' 'y' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_8 = bitconcatenate i14 @_ssdm_op_BitConcatenate.i14.i7.i7, i7 %trunc_ln20_1, i7 0" [PFN.cpp:23]   --->   Operation 26 'bitconcatenate' 'tmp_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln23 = zext i8 %y" [PFN.cpp:23]   --->   Operation 27 'zext' 'zext_ln23' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 28 [1/1] (1.38ns)   --->   "%add_ln23 = add i14 %tmp_8, i14 %zext_ln23" [PFN.cpp:23]   --->   Operation 28 'add' 'add_ln23' <Predicate = true> <Delay = 1.38> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%zext_ln23_1 = zext i14 %add_ln23" [PFN.cpp:23]   --->   Operation 29 'zext' 'zext_ln23_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%pseudoimage_addr = getelementptr i2056 %pseudoimage, i64 0, i64 %zext_ln23_1" [PFN.cpp:23]   --->   Operation 30 'getelementptr' 'pseudoimage_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 31 [2/2] (0.00ns)   --->   "%pseudoimage_load = load i14 %pseudoimage_addr" [PFN.cpp:23]   --->   Operation 31 'load' 'pseudoimage_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2056> <Depth = 16384> <RAM>
+State 2 <SV = 1> <Delay = 2.39>
+ST_2 : Operation 45 [1/2] (2.39ns)   --->   "%call_ln0 = call void @calculate_pseudoimage_Pipeline_1, i32 %indices, i32 %indices_first"   --->   Operation 45 'call' 'call_ln0' <Predicate = true> <Delay = 2.39> <CoreType = "Generic">   --->   Generic Core
 
-State 3 <SV = 2> <Delay = 3.13>
-ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%specpipeline_ln19 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, i32 4294967295, void @empty_0" [PFN.cpp:19]   --->   Operation 32 'specpipeline' 'specpipeline_ln19' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%speclooptripcount_ln19 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1000, i64 1000, i64 1000" [PFN.cpp:19]   --->   Operation 33 'speclooptripcount' 'speclooptripcount_ln19' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%specloopname_ln19 = specloopname void @_ssdm_op_SpecLoopName, void @empty_2" [PFN.cpp:19]   --->   Operation 34 'specloopname' 'specloopname_ln19' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 35 [1/2] ( I:0.00ns O:0.00ns )   --->   "%pseudoimage_load = load i14 %pseudoimage_addr" [PFN.cpp:23]   --->   Operation 35 'load' 'pseudoimage_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2056> <Depth = 16384> <RAM>
-ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%c = trunc i2056 %pseudoimage_load" [PFN.cpp:23]   --->   Operation 36 'trunc' 'c' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%tmp = partselect i2 @_ssdm_op_PartSelect.i2.i2056.i32.i32, i2056 %pseudoimage_load, i32 6, i32 7" [PFN.cpp:24]   --->   Operation 37 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 38 [1/1] (0.72ns)   --->   "%icmp_ln24 = icmp_eq  i2 %tmp, i2 0" [PFN.cpp:24]   --->   Operation 38 'icmp' 'icmp_ln24' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.72> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%br_ln24 = br i1 %icmp_ln24, void %for.inc, void %if.then" [PFN.cpp:24]   --->   Operation 39 'br' 'br_ln24' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %pointcloud_load, i32 16, i32 23" [PFN.cpp:25]   --->   Operation 40 'partselect' 'lshr_ln' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%lshr_ln25_1 = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %pointcloud_load, i32 24, i32 31" [PFN.cpp:25]   --->   Operation 41 'partselect' 'lshr_ln25_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln25 = trunc i2056 %pseudoimage_load" [PFN.cpp:25]   --->   Operation 42 'trunc' 'trunc_ln25' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i6.i5, i6 %trunc_ln25, i5 0" [PFN.cpp:25]   --->   Operation 43 'bitconcatenate' 'shl_ln' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln25 = zext i11 %shl_ln" [PFN.cpp:25]   --->   Operation 44 'zext' 'zext_ln25' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%or_ln1 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i6.i5, i6 %trunc_ln25, i5 8" [PFN.cpp:25]   --->   Operation 45 'bitconcatenate' 'or_ln1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%zext_ln25_1 = zext i11 %or_ln1" [PFN.cpp:25]   --->   Operation 46 'zext' 'zext_ln25_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 47 [1/1] (1.17ns)   --->   "%shl_ln25 = shl i2032 255, i2032 %zext_ln25_1" [PFN.cpp:25]   --->   Operation 47 'shl' 'shl_ln25' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln25_2 = zext i2032 %shl_ln25" [PFN.cpp:25]   --->   Operation 48 'zext' 'zext_ln25_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln25_3 = zext i8 %x" [PFN.cpp:25]   --->   Operation 49 'zext' 'zext_ln25_3' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 50 [1/1] (1.17ns)   --->   "%shl_ln25_1 = shl i2032 %zext_ln25_3, i2032 %zext_ln25_1" [PFN.cpp:25]   --->   Operation 50 'shl' 'shl_ln25_1' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%or_ln25_1 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i6.i5, i6 %trunc_ln25, i5 16" [PFN.cpp:25]   --->   Operation 51 'bitconcatenate' 'or_ln25_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%zext_ln25_4 = zext i11 %or_ln25_1" [PFN.cpp:25]   --->   Operation 52 'zext' 'zext_ln25_4' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 53 [1/1] (1.17ns)   --->   "%shl_ln25_2 = shl i2040 255, i2040 %zext_ln25_4" [PFN.cpp:25]   --->   Operation 53 'shl' 'shl_ln25_2' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln25_5 = zext i2040 %shl_ln25_2" [PFN.cpp:25]   --->   Operation 54 'zext' 'zext_ln25_5' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln25_6 = zext i8 %y" [PFN.cpp:25]   --->   Operation 55 'zext' 'zext_ln25_6' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 56 [1/1] (1.17ns)   --->   "%shl_ln25_3 = shl i2040 %zext_ln25_6, i2040 %zext_ln25_4" [PFN.cpp:25]   --->   Operation 56 'shl' 'shl_ln25_3' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 57 [1/1] (0.00ns)   --->   "%or_ln25_2 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i6.i5, i6 %trunc_ln25, i5 24" [PFN.cpp:25]   --->   Operation 57 'bitconcatenate' 'or_ln25_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 58 [1/1] (0.00ns)   --->   "%zext_ln25_9 = zext i11 %or_ln25_2" [PFN.cpp:25]   --->   Operation 58 'zext' 'zext_ln25_9' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 59 [1/1] (1.17ns)   --->   "%shl_ln25_4 = shl i2048 255, i2048 %zext_ln25_9" [PFN.cpp:25]   --->   Operation 59 'shl' 'shl_ln25_4' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln25_10 = zext i2048 %shl_ln25_4" [PFN.cpp:25]   --->   Operation 60 'zext' 'zext_ln25_10' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln25_11 = zext i8 %lshr_ln" [PFN.cpp:25]   --->   Operation 61 'zext' 'zext_ln25_11' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 62 [1/1] (1.17ns)   --->   "%shl_ln25_5 = shl i2048 %zext_ln25_11, i2048 %zext_ln25_9" [PFN.cpp:25]   --->   Operation 62 'shl' 'shl_ln25_5' <Predicate = (icmp_ln24)> <Delay = 1.17> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 63 [1/1] (1.33ns)   --->   "%add_ln25 = add i12 %zext_ln25, i12 32" [PFN.cpp:25]   --->   Operation 63 'add' 'add_ln25' <Predicate = (icmp_ln24)> <Delay = 1.33> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln25_7 = zext i12 %add_ln25" [PFN.cpp:25]   --->   Operation 64 'zext' 'zext_ln25_7' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 65 [1/1] (1.19ns)   --->   "%shl_ln25_6 = shl i2056 255, i2056 %zext_ln25_7" [PFN.cpp:25]   --->   Operation 65 'shl' 'shl_ln25_6' <Predicate = (icmp_ln24)> <Delay = 1.19> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.19> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln25_8 = zext i8 %lshr_ln25_1" [PFN.cpp:25]   --->   Operation 66 'zext' 'zext_ln25_8' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 67 [1/1] (1.19ns)   --->   "%shl_ln25_7 = shl i2056 %zext_ln25_8, i2056 %zext_ln25_7" [PFN.cpp:25]   --->   Operation 67 'shl' 'shl_ln25_7' <Predicate = (icmp_ln24)> <Delay = 1.19> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.19> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 68 [1/1] (1.28ns)   --->   "%add_ln26 = add i8 %c, i8 1" [PFN.cpp:26]   --->   Operation 68 'add' 'add_ln26' <Predicate = (icmp_ln24)> <Delay = 1.28> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.28> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 69 [1/1] (0.48ns)   --->   "%xor_ln26 = xor i2033 %zext_ln25_2, i2033 986236757547332986472011617696226561292849812918563355472727826767720188564083584387121625107510786855734801053524719833194566624465665316622563244215340671405971599343902468620306327831715457360719532421388780770165778156818229863337344187575566725786793391480600129482653072861971002459947277805295727097226389568776499707662505334062639449916265137796823793276300221537201727072401742985542559596685092673521228140822200236743113743661549252453726123450722876929538747702356573783116366629850199080495560991841329893037292397105499226019760899853193278062243717512000415180826369586332768194383418384126574591" [PFN.cpp:26]   --->   Operation 69 'xor' 'xor_ln26' <Predicate = (icmp_ln24)> <Delay = 0.48> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%sext_ln26 = sext i2033 %xor_ln26" [PFN.cpp:26]   --->   Operation 70 'sext' 'sext_ln26' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 71 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_5)   --->   "%trunc_ln26 = trunc i2033 %xor_ln26" [PFN.cpp:26]   --->   Operation 71 'trunc' 'trunc_ln26' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 72 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_5)   --->   "%trunc_ln26_1 = trunc i2056 %pseudoimage_load" [PFN.cpp:26]   --->   Operation 72 'trunc' 'trunc_ln26_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 73 [1/1] (0.49ns)   --->   "%and_ln26 = and i2056 %pseudoimage_load, i2056 %sext_ln26" [PFN.cpp:26]   --->   Operation 73 'and' 'and_ln26' <Predicate = (icmp_ln24)> <Delay = 0.49> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 74 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_5)   --->   "%and_ln26_4 = and i2032 %trunc_ln26_1, i2032 %trunc_ln26" [PFN.cpp:26]   --->   Operation 74 'and' 'and_ln26_4' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 75 [1/1] (0.48ns) (out node of the LUT)   --->   "%or_ln26_5 = or i2032 %and_ln26_4, i2032 %shl_ln25_1" [PFN.cpp:26]   --->   Operation 75 'or' 'or_ln26_5' <Predicate = (icmp_ln24)> <Delay = 0.48> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%tmp_1 = partselect i24 @_ssdm_op_PartSelect.i24.i2056.i32.i32, i2056 %and_ln26, i32 2032, i32 2055" [PFN.cpp:26]   --->   Operation 76 'partselect' 'tmp_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 77 [1/1] (0.00ns) (grouped into LUT with out node or_ln26)   --->   "%tmp_2 = partselect i8 @_ssdm_op_PartSelect.i8.i2056.i32.i32, i2056 %and_ln26, i32 2032, i32 2039" [PFN.cpp:26]   --->   Operation 77 'partselect' 'tmp_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i2056 @_ssdm_op_BitConcatenate.i2056.i24.i2032, i24 %tmp_1, i2032 %or_ln26_5" [PFN.cpp:26]   --->   Operation 78 'bitconcatenate' 'or_ln' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 79 [1/1] (0.48ns)   --->   "%xor_ln26_1 = xor i2041 %zext_ln25_5, i2041 252476609932117244536834974130233999690969552107152219001018323652536368272405397603103136027522761435068109069702328277297809055863210321055376190519127211879928729432039031966798419924919157084344200299875527877162439208145466845014360112019345081801419108219033633147559186652664576629746503118155706136889955729606783925161601365520035699178563875275986891078732856713523642130534846204298895256751383724421434404050483260606237118377356608628153887603385056493961919411803282888477789857241650964606863613911380452617546853659007801861058790362417479183934391683072106286291550614101188657762155106336403095551" [PFN.cpp:26]   --->   Operation 79 'xor' 'xor_ln26_1' <Predicate = (icmp_ln24)> <Delay = 0.48> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%sext_ln26_1 = sext i2041 %xor_ln26_1" [PFN.cpp:26]   --->   Operation 80 'sext' 'sext_ln26_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 81 [1/1] (0.00ns) (grouped into LUT with out node or_ln26)   --->   "%trunc_ln26_2 = trunc i2041 %xor_ln26_1" [PFN.cpp:26]   --->   Operation 81 'trunc' 'trunc_ln26_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node or_ln26)   --->   "%tmp_3 = bitconcatenate i2040 @_ssdm_op_BitConcatenate.i2040.i8.i2032, i8 %tmp_2, i2032 %or_ln26_5" [PFN.cpp:26]   --->   Operation 82 'bitconcatenate' 'tmp_3' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 83 [1/1] (0.49ns)   --->   "%and_ln26_1 = and i2056 %or_ln, i2056 %sext_ln26_1" [PFN.cpp:26]   --->   Operation 83 'and' 'and_ln26_1' <Predicate = (icmp_ln24)> <Delay = 0.49> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node or_ln26)   --->   "%and_ln26_5 = and i2040 %tmp_3, i2040 %trunc_ln26_2" [PFN.cpp:26]   --->   Operation 84 'and' 'and_ln26_5' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 85 [1/1] (0.48ns) (out node of the LUT)   --->   "%or_ln26 = or i2040 %and_ln26_5, i2040 %shl_ln25_3" [PFN.cpp:26]   --->   Operation 85 'or' 'or_ln26' <Predicate = (icmp_ln24)> <Delay = 0.48> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%tmp_4 = partselect i16 @_ssdm_op_PartSelect.i16.i2056.i32.i32, i2056 %and_ln26_1, i32 2040, i32 2055" [PFN.cpp:26]   --->   Operation 86 'partselect' 'tmp_4' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%tmp_5 = partselect i8 @_ssdm_op_PartSelect.i8.i2056.i32.i32, i2056 %and_ln26_1, i32 2040, i32 2047" [PFN.cpp:26]   --->   Operation 87 'partselect' 'tmp_5' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%or_ln26_1 = bitconcatenate i2056 @_ssdm_op_BitConcatenate.i2056.i16.i2040, i16 %tmp_4, i2040 %or_ln26" [PFN.cpp:26]   --->   Operation 88 'bitconcatenate' 'or_ln26_1' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 89 [1/1] (0.48ns)   --->   "%xor_ln26_2 = xor i2049 %zext_ln25_10, i2049 64634012142622014601429753377339903920888205339430968064260690855049310277735781786394402823045826927377435921843796038988239118300981842190176304772896566241261754734601992183500395500779304213592115276768135136553584437285239512323676188676952340941163291704072610085775151783082131617215104798247860771043828666779336684841369949573129138989712352070652644116155611318662052385416920628300517185728354233451887207436923714715196702304603291808807395226466574462454251369421640419450314203453862646939357085161313395870091994536705997276431050332778874671087204270866459209290636957209904296387111707222119192461056" [PFN.cpp:26]   --->   Operation 89 'xor' 'xor_ln26_2' <Predicate = (icmp_ln24)> <Delay = 0.48> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 90 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%sext_ln26_2 = sext i2049 %xor_ln26_2" [PFN.cpp:26]   --->   Operation 90 'sext' 'sext_ln26_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 91 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%trunc_ln26_3 = trunc i2049 %xor_ln26_2" [PFN.cpp:26]   --->   Operation 91 'trunc' 'trunc_ln26_3' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 92 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%tmp_6 = bitconcatenate i2048 @_ssdm_op_BitConcatenate.i2048.i8.i2040, i8 %tmp_5, i2040 %or_ln26" [PFN.cpp:26]   --->   Operation 92 'bitconcatenate' 'tmp_6' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 93 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%and_ln26_2 = and i2056 %or_ln26_1, i2056 %sext_ln26_2" [PFN.cpp:26]   --->   Operation 93 'and' 'and_ln26_2' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 94 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%and_ln26_6 = and i2048 %tmp_6, i2048 %trunc_ln26_3" [PFN.cpp:26]   --->   Operation 94 'and' 'and_ln26_6' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 95 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%or_ln26_6 = or i2048 %and_ln26_6, i2048 %shl_ln25_5" [PFN.cpp:26]   --->   Operation 95 'or' 'or_ln26_6' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 96 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%tmp_7 = partselect i8 @_ssdm_op_PartSelect.i8.i2056.i32.i32, i2056 %and_ln26_2, i32 2048, i32 2055" [PFN.cpp:26]   --->   Operation 96 'partselect' 'tmp_7' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%or_ln26_2 = bitconcatenate i2056 @_ssdm_op_BitConcatenate.i2056.i8.i2048, i8 %tmp_7, i2048 %or_ln26_6" [PFN.cpp:26]   --->   Operation 97 'bitconcatenate' 'or_ln26_2' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 98 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%xor_ln26_3 = xor i2056 %shl_ln25_6, i2056 8273153554255617868983008432299507701873690283447163912225368429446311715550180068658483561349865846704311797996005892990494607142525675800342567010930760478881504606029054999488050624099750939339790755426321297478858807972510657577430552150649899640468901338121294090979219428234512847003533414175726178693610069347755095659695353545360529790683181065043538446867918248788742705333365840422466199773229341881841562551926235483545177894989221351527346588987721531194144175285969973689640218042094418808237706900648114671371775300698367651383174442595695957899162146670906778789201530522867749937550298524431256635047680" [PFN.cpp:26]   --->   Operation 98 'xor' 'xor_ln26_3' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 99 [1/1] (0.00ns) (grouped into LUT with out node or_ln26_3)   --->   "%and_ln26_3 = and i2056 %or_ln26_2, i2056 %xor_ln26_3" [PFN.cpp:26]   --->   Operation 99 'and' 'and_ln26_3' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 100 [1/1] (0.49ns) (out node of the LUT)   --->   "%or_ln26_3 = or i2056 %and_ln26_3, i2056 %shl_ln25_7" [PFN.cpp:26]   --->   Operation 100 'or' 'or_ln26_3' <Predicate = (icmp_ln24)> <Delay = 0.49> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%tmp_s = partselect i2048 @_ssdm_op_PartSelect.i2048.i2056.i32.i32, i2056 %or_ln26_3, i32 8, i32 2055" [PFN.cpp:26]   --->   Operation 101 'partselect' 'tmp_s' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%or_ln26_4 = bitconcatenate i2056 @_ssdm_op_BitConcatenate.i2056.i2048.i8, i2048 %tmp_s, i8 %add_ln26" [PFN.cpp:26]   --->   Operation 102 'bitconcatenate' 'or_ln26_4' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 103 [1/1] ( I:0.00ns O:0.00ns )   --->   "%store_ln26 = store i2056 %or_ln26_4, i14 %pseudoimage_addr" [PFN.cpp:26]   --->   Operation 103 'store' 'store_ln26' <Predicate = (icmp_ln24)> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2056> <Depth = 16384> <RAM>
-ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%br_ln27 = br void %for.inc" [PFN.cpp:27]   --->   Operation 104 'br' 'br_ln27' <Predicate = (icmp_ln24)> <Delay = 0.00>
-ST_3 : Operation 105 [1/1] (0.53ns)   --->   "%ret_ln29 = ret" [PFN.cpp:29]   --->   Operation 105 'ret' 'ret_ln29' <Predicate = (icmp_ln19)> <Delay = 0.53>
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 46 [2/2] (0.00ns)   --->   "%call_ln0 = call void @calculate_pseudoimage_Pipeline_collection_loop, i256 %pointcloud, i32 %pseudoimage_count, i576 %pseudoimage_data, i32 %indices, i32 %indices_first, i32 %pillar_count_loc"   --->   Operation 46 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 47 [1/2] (0.00ns)   --->   "%call_ln0 = call void @calculate_pseudoimage_Pipeline_collection_loop, i256 %pointcloud, i32 %pseudoimage_count, i576 %pseudoimage_data, i32 %indices, i32 %indices_first, i32 %pillar_count_loc"   --->   Operation 47 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%spectopmodule_ln28 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [PFN.cpp:28]   --->   Operation 48 'spectopmodule' 'spectopmodule_ln28' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %pointcloud, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i256 %pointcloud"   --->   Operation 50 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %pseudoimage_count, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 51 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %pseudoimage_count"   --->   Operation 52 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i576 %pseudoimage_data, void @empty, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 53 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i576 %pseudoimage_data"   --->   Operation 54 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%pillar_count_loc_load = load i32 %pillar_count_loc"   --->   Operation 55 'load' 'pillar_count_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln52 = br void %sum_loop" [PFN.cpp:52]   --->   Operation 56 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 2.02>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%i = load i32 %i_1" [PFN.cpp:52]   --->   Operation 57 'load' 'i' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (1.48ns)   --->   "%icmp_ln52 = icmp_eq  i32 %i, i32 %pillar_count_loc_load" [PFN.cpp:52]   --->   Operation 58 'icmp' 'icmp_ln52' <Predicate = true> <Delay = 1.48> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 59 [1/1] (1.48ns)   --->   "%add_ln52 = add i32 %i, i32 1" [PFN.cpp:52]   --->   Operation 59 'add' 'add_ln52' <Predicate = true> <Delay = 1.48> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 60 [1/1] (0.00ns)   --->   "%br_ln52 = br i1 %icmp_ln52, void %sum_loop.split, void %for.end174" [PFN.cpp:52]   --->   Operation 60 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln52 = zext i32 %i" [PFN.cpp:52]   --->   Operation 61 'zext' 'zext_ln52' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (0.00ns)   --->   "%indices_addr = getelementptr i32 %indices, i64 0, i64 %zext_ln52" [PFN.cpp:53]   --->   Operation 62 'getelementptr' 'indices_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_6 : Operation 63 [2/2] (1.77ns)   --->   "%x = load i10 %indices_addr" [PFN.cpp:53]   --->   Operation 63 'load' 'x' <Predicate = (!icmp_ln52)> <Delay = 1.77> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%indices_first_addr = getelementptr i32 %indices_first, i64 0, i64 %zext_ln52" [PFN.cpp:54]   --->   Operation 64 'getelementptr' 'indices_first_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_6 : Operation 65 [2/2] (1.77ns)   --->   "%y = load i10 %indices_first_addr" [PFN.cpp:54]   --->   Operation 65 'load' 'y' <Predicate = (!icmp_ln52)> <Delay = 1.77> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 66 [1/1] (0.53ns)   --->   "%store_ln52 = store i32 %add_ln52, i32 %i_1" [PFN.cpp:52]   --->   Operation 66 'store' 'store_ln52' <Predicate = (!icmp_ln52)> <Delay = 0.53>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%ret_ln78 = ret" [PFN.cpp:78]   --->   Operation 67 'ret' 'ret_ln78' <Predicate = (icmp_ln52)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 3.15>
+ST_7 : Operation 68 [1/2] ( I:1.77ns O:1.77ns )   --->   "%x = load i10 %indices_addr" [PFN.cpp:53]   --->   Operation 68 'load' 'x' <Predicate = true> <Delay = 1.77> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 69 [1/1] (0.00ns)   --->   "%trunc_ln53 = trunc i32 %x" [PFN.cpp:53]   --->   Operation 69 'trunc' 'trunc_ln53' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 70 [1/2] ( I:1.77ns O:1.77ns )   --->   "%y = load i10 %indices_first_addr" [PFN.cpp:54]   --->   Operation 70 'load' 'y' <Predicate = true> <Delay = 1.77> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i14 @_ssdm_op_BitConcatenate.i14.i7.i7, i7 %trunc_ln53, i7 0" [PFN.cpp:60]   --->   Operation 71 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 72 [1/1] (0.00ns)   --->   "%trunc_ln60 = trunc i32 %y" [PFN.cpp:60]   --->   Operation 72 'trunc' 'trunc_ln60' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 73 [1/1] (1.38ns)   --->   "%add_ln60 = add i14 %tmp_s, i14 %trunc_ln60" [PFN.cpp:60]   --->   Operation 73 'add' 'add_ln60' <Predicate = true> <Delay = 1.38> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 74 [1/1] (0.00ns)   --->   "%zext_ln60 = zext i14 %add_ln60" [PFN.cpp:60]   --->   Operation 74 'zext' 'zext_ln60' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 75 [1/1] (0.00ns)   --->   "%pseudoimage_count_addr = getelementptr i32 %pseudoimage_count, i64 0, i64 %zext_ln60" [PFN.cpp:60]   --->   Operation 75 'getelementptr' 'pseudoimage_count_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 76 [2/2] (0.00ns)   --->   "%pseudoimage_count_load = load i14 %pseudoimage_count_addr" [PFN.cpp:60]   --->   Operation 76 'load' 'pseudoimage_count_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16384> <RAM>
+
+State 8 <SV = 7> <Delay = 5.62>
+ST_8 : Operation 77 [1/2] ( I:0.00ns O:0.00ns )   --->   "%pseudoimage_count_load = load i14 %pseudoimage_count_addr" [PFN.cpp:60]   --->   Operation 77 'load' 'pseudoimage_count_load' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16384> <RAM>
+ST_8 : Operation 78 [4/4] (5.62ns)   --->   "%conv1 = uitodp i32 %pseudoimage_count_load" [PFN.cpp:66]   --->   Operation 78 'uitodp' 'conv1' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 5.62>
+ST_9 : Operation 79 [3/4] (5.62ns)   --->   "%conv1 = uitodp i32 %pseudoimage_count_load" [PFN.cpp:66]   --->   Operation 79 'uitodp' 'conv1' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 5.62>
+ST_10 : Operation 80 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i14.i6, i14 %add_ln60, i6 0" [PFN.cpp:61]   --->   Operation 80 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 81 [2/2] (2.02ns)   --->   "%call_ln60 = call void @calculate_pseudoimage_Pipeline_sum_loop, i32 %pseudoimage_count_load, i20 %tmp, i576 %pseudoimage_data, i64 %avg_z_1_loc, i64 %avg_y_1_loc, i64 %avg_x_1_loc" [PFN.cpp:60]   --->   Operation 81 'call' 'call_ln60' <Predicate = true> <Delay = 2.02> <CoreType = "Generic">   --->   Generic Core
+ST_10 : Operation 82 [2/4] (5.62ns)   --->   "%conv1 = uitodp i32 %pseudoimage_count_load" [PFN.cpp:66]   --->   Operation 82 'uitodp' 'conv1' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 5.62>
+ST_11 : Operation 83 [1/2] (0.00ns)   --->   "%call_ln60 = call void @calculate_pseudoimage_Pipeline_sum_loop, i32 %pseudoimage_count_load, i20 %tmp, i576 %pseudoimage_data, i64 %avg_z_1_loc, i64 %avg_y_1_loc, i64 %avg_x_1_loc" [PFN.cpp:60]   --->   Operation 83 'call' 'call_ln60' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_11 : Operation 84 [1/4] (5.62ns)   --->   "%conv1 = uitodp i32 %pseudoimage_count_load" [PFN.cpp:66]   --->   Operation 84 'uitodp' 'conv1' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 5.92>
+ST_12 : Operation 85 [1/1] (0.00ns)   --->   "%avg_z_1_loc_load = load i64 %avg_z_1_loc"   --->   Operation 85 'load' 'avg_z_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 86 [1/1] (0.00ns)   --->   "%avg_y_1_loc_load = load i64 %avg_y_1_loc"   --->   Operation 86 'load' 'avg_y_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 87 [1/1] (0.00ns)   --->   "%avg_x_1_loc_load = load i64 %avg_x_1_loc"   --->   Operation 87 'load' 'avg_x_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 88 [22/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 88 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 89 [22/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 89 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 90 [22/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 90 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 5.92>
+ST_13 : Operation 91 [21/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 91 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 92 [21/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 92 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 93 [21/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 93 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 5.92>
+ST_14 : Operation 94 [20/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 94 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 95 [20/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 95 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 96 [20/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 96 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 5.92>
+ST_15 : Operation 97 [19/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 97 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 98 [19/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 98 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 99 [19/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 99 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 5.92>
+ST_16 : Operation 100 [18/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 100 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 101 [18/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 101 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 102 [18/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 102 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 5.92>
+ST_17 : Operation 103 [17/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 103 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 104 [17/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 104 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 105 [17/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 105 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 5.92>
+ST_18 : Operation 106 [16/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 106 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 107 [16/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 107 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 108 [16/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 108 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 5.92>
+ST_19 : Operation 109 [15/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 109 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 110 [15/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 110 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 111 [15/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 111 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 5.92>
+ST_20 : Operation 112 [14/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 112 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 113 [14/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 113 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 114 [14/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 114 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 115 [4/4] (5.62ns)   --->   "%conv2 = uitodp i32 %x" [PFN.cpp:74]   --->   Operation 115 'uitodp' 'conv2' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+ST_20 : Operation 116 [4/4] (5.62ns)   --->   "%conv3 = uitodp i32 %y" [PFN.cpp:75]   --->   Operation 116 'uitodp' 'conv3' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 5.92>
+ST_21 : Operation 117 [13/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 117 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 118 [13/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 118 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 119 [13/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 119 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 120 [3/4] (5.62ns)   --->   "%conv2 = uitodp i32 %x" [PFN.cpp:74]   --->   Operation 120 'uitodp' 'conv2' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+ST_21 : Operation 121 [3/4] (5.62ns)   --->   "%conv3 = uitodp i32 %y" [PFN.cpp:75]   --->   Operation 121 'uitodp' 'conv3' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 5.92>
+ST_22 : Operation 122 [12/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 122 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 123 [12/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 123 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 124 [12/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 124 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 125 [2/4] (5.62ns)   --->   "%conv2 = uitodp i32 %x" [PFN.cpp:74]   --->   Operation 125 'uitodp' 'conv2' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+ST_22 : Operation 126 [2/4] (5.62ns)   --->   "%conv3 = uitodp i32 %y" [PFN.cpp:75]   --->   Operation 126 'uitodp' 'conv3' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 5.92>
+ST_23 : Operation 127 [11/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 127 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 128 [11/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 128 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 129 [11/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 129 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 130 [1/4] (5.62ns)   --->   "%conv2 = uitodp i32 %x" [PFN.cpp:74]   --->   Operation 130 'uitodp' 'conv2' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+ST_23 : Operation 131 [1/4] (5.62ns)   --->   "%conv3 = uitodp i32 %y" [PFN.cpp:75]   --->   Operation 131 'uitodp' 'conv3' <Predicate = true> <Delay = 5.62> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 5.62> <FuncUnit> <Opcode : 'uitodp' 'sitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 7.04>
+ST_24 : Operation 132 [10/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 132 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 133 [10/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 133 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 134 [10/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 134 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 135 [5/5] (7.04ns)   --->   "%mul = dmul i64 %conv2, i64 500" [PFN.cpp:74]   --->   Operation 135 'dmul' 'mul' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 136 [5/5] (7.04ns)   --->   "%mul1 = dmul i64 %conv3, i64 500" [PFN.cpp:75]   --->   Operation 136 'dmul' 'mul1' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 7.04>
+ST_25 : Operation 137 [9/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 137 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 138 [9/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 138 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 139 [9/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 139 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 140 [4/5] (7.04ns)   --->   "%mul = dmul i64 %conv2, i64 500" [PFN.cpp:74]   --->   Operation 140 'dmul' 'mul' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 141 [4/5] (7.04ns)   --->   "%mul1 = dmul i64 %conv3, i64 500" [PFN.cpp:75]   --->   Operation 141 'dmul' 'mul1' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 7.04>
+ST_26 : Operation 142 [8/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 142 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 143 [8/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 143 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 144 [8/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 144 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 145 [3/5] (7.04ns)   --->   "%mul = dmul i64 %conv2, i64 500" [PFN.cpp:74]   --->   Operation 145 'dmul' 'mul' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 146 [3/5] (7.04ns)   --->   "%mul1 = dmul i64 %conv3, i64 500" [PFN.cpp:75]   --->   Operation 146 'dmul' 'mul1' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 7.04>
+ST_27 : Operation 147 [7/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 147 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 148 [7/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 148 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 149 [7/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 149 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 150 [2/5] (7.04ns)   --->   "%mul = dmul i64 %conv2, i64 500" [PFN.cpp:74]   --->   Operation 150 'dmul' 'mul' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 151 [2/5] (7.04ns)   --->   "%mul1 = dmul i64 %conv3, i64 500" [PFN.cpp:75]   --->   Operation 151 'dmul' 'mul1' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 7.04>
+ST_28 : Operation 152 [6/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 152 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 153 [6/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 153 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 154 [6/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 154 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 155 [1/5] (7.04ns)   --->   "%mul = dmul i64 %conv2, i64 500" [PFN.cpp:74]   --->   Operation 155 'dmul' 'mul' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 156 [1/5] (7.04ns)   --->   "%mul1 = dmul i64 %conv3, i64 500" [PFN.cpp:75]   --->   Operation 156 'dmul' 'mul1' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 7.04>
+ST_29 : Operation 157 [5/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 157 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 158 [5/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 158 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 159 [5/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 159 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 160 [5/5] (7.04ns)   --->   "%div5 = dmul i64 %mul, i64 0.0078125" [PFN.cpp:74]   --->   Operation 160 'dmul' 'div5' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 161 [5/5] (7.04ns)   --->   "%div6 = dmul i64 %mul1, i64 0.0078125" [PFN.cpp:75]   --->   Operation 161 'dmul' 'div6' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 7.04>
+ST_30 : Operation 162 [4/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 162 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 163 [4/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 163 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 164 [4/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 164 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 165 [4/5] (7.04ns)   --->   "%div5 = dmul i64 %mul, i64 0.0078125" [PFN.cpp:74]   --->   Operation 165 'dmul' 'div5' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 166 [4/5] (7.04ns)   --->   "%div6 = dmul i64 %mul1, i64 0.0078125" [PFN.cpp:75]   --->   Operation 166 'dmul' 'div6' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 7.04>
+ST_31 : Operation 167 [3/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 167 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 168 [3/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 168 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 169 [3/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 169 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 170 [3/5] (7.04ns)   --->   "%div5 = dmul i64 %mul, i64 0.0078125" [PFN.cpp:74]   --->   Operation 170 'dmul' 'div5' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 171 [3/5] (7.04ns)   --->   "%div6 = dmul i64 %mul1, i64 0.0078125" [PFN.cpp:75]   --->   Operation 171 'dmul' 'div6' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 31> <Delay = 7.04>
+ST_32 : Operation 172 [2/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 172 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 173 [2/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 173 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 174 [2/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 174 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 175 [2/5] (7.04ns)   --->   "%div5 = dmul i64 %mul, i64 0.0078125" [PFN.cpp:74]   --->   Operation 175 'dmul' 'div5' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 176 [2/5] (7.04ns)   --->   "%div6 = dmul i64 %mul1, i64 0.0078125" [PFN.cpp:75]   --->   Operation 176 'dmul' 'div6' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 7.04>
+ST_33 : Operation 177 [1/22] (5.92ns)   --->   "%avg_x = ddiv i64 %avg_x_1_loc_load, i64 %conv1" [PFN.cpp:66]   --->   Operation 177 'ddiv' 'avg_x' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 178 [1/22] (5.92ns)   --->   "%avg_y = ddiv i64 %avg_y_1_loc_load, i64 %conv1" [PFN.cpp:67]   --->   Operation 178 'ddiv' 'avg_y' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 179 [1/22] (5.92ns)   --->   "%avg_z = ddiv i64 %avg_z_1_loc_load, i64 %conv1" [PFN.cpp:68]   --->   Operation 179 'ddiv' 'avg_z' <Predicate = true> <Delay = 5.92> <CoreInst = "DDiv">   --->   Core 39 'DDiv' <Latency = 21> <II = 1> <Delay = 5.92> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 180 [1/5] (7.04ns)   --->   "%div5 = dmul i64 %mul, i64 0.0078125" [PFN.cpp:74]   --->   Operation 180 'dmul' 'div5' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 181 [1/5] (7.04ns)   --->   "%div6 = dmul i64 %mul1, i64 0.0078125" [PFN.cpp:75]   --->   Operation 181 'dmul' 'div6' <Predicate = true> <Delay = 7.04> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 4> <II = 1> <Delay = 7.04> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 2.02>
+ST_34 : Operation 182 [2/2] (2.02ns)   --->   "%call_ln60 = call void @calculate_pseudoimage_Pipeline_assign_loop, i32 %pseudoimage_count_load, i20 %tmp, i576 %pseudoimage_data, i64 %avg_x, i64 %avg_y, i64 %avg_z, i64 %div5, i64 %div6" [PFN.cpp:60]   --->   Operation 182 'call' 'call_ln60' <Predicate = true> <Delay = 2.02> <CoreType = "Generic">   --->   Generic Core
+
+State 35 <SV = 34> <Delay = 0.00>
+ST_35 : Operation 183 [1/1] (0.00ns)   --->   "%specloopname_ln52 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4" [PFN.cpp:52]   --->   Operation 183 'specloopname' 'specloopname_ln52' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 184 [1/2] (0.00ns)   --->   "%call_ln60 = call void @calculate_pseudoimage_Pipeline_assign_loop, i32 %pseudoimage_count_load, i20 %tmp, i576 %pseudoimage_data, i64 %avg_x, i64 %avg_y, i64 %avg_z, i64 %div5, i64 %div6" [PFN.cpp:60]   --->   Operation 184 'call' 'call_ln60' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_35 : Operation 185 [1/1] (0.00ns)   --->   "%br_ln52 = br void %sum_loop" [PFN.cpp:52]   --->   Operation 185 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -197,28 +339,147 @@ ST_3 : Operation 105 [1/1] (0.53ns)   --->   "%ret_ln29 = ret" [PFN.cpp:29]   --
 ============================================================
 Target clock period: 10.000ns, clock uncertainty: 2.700ns.
 
- <State 1>: 2.394ns
+ <State 1>: 0.538ns
 The critical path consists of the following:
-	'store' operation ('store_ln19', PFN.cpp:19) of constant 0 10 bit on local variable 'i', PFN.cpp:19 [9]  (0.538 ns)
-	'load' operation 10 bit ('i', PFN.cpp:19) on local variable 'i', PFN.cpp:19 [12]  (0.000 ns)
-	'add' operation 10 bit ('i_3', PFN.cpp:19) [31]  (1.319 ns)
-	'store' operation ('store_ln19', PFN.cpp:19) of variable 'i_3', PFN.cpp:19 10 bit on local variable 'i', PFN.cpp:19 [101]  (0.538 ns)
+	'alloca' operation 32 bit ('i', PFN.cpp:52) [4]  (0.000 ns)
+	'store' operation ('store_ln52', PFN.cpp:52) of constant 0 32 bit on local variable 'i', PFN.cpp:52 [21]  (0.538 ns)
 
- <State 2>: 1.385ns
+ <State 2>: 2.394ns
 The critical path consists of the following:
-	'load' operation 32 bit ('pointcloud_load', PFN.cpp:20) on array 'pointcloud' [18]  (0.000 ns)
-	'add' operation 14 bit ('add_ln23', PFN.cpp:23) [24]  (1.385 ns)
+	'call' operation ('call_ln0') to 'calculate_pseudoimage_Pipeline_1' [18]  (2.394 ns)
 
- <State 3>: 3.140ns
+ <State 3>: 0.000ns
 The critical path consists of the following:
-	'load' operation 2056 bit ('pseudoimage_load', PFN.cpp:23) on array 'pseudoimage' [27]  (0.000 ns)
-	'shl' operation 2032 bit ('shl_ln25', PFN.cpp:25) [41]  (1.173 ns)
-	'xor' operation 2033 bit ('xor_ln26', PFN.cpp:26) [63]  (0.489 ns)
-	'and' operation 2056 bit ('and_ln26', PFN.cpp:26) [67]  (0.492 ns)
-	'and' operation 2056 bit ('and_ln26_1', PFN.cpp:26) [77]  (0.492 ns)
-	'and' operation 2056 bit ('and_ln26_2', PFN.cpp:26) [87]  (0.000 ns)
-	'and' operation 2056 bit ('and_ln26_3', PFN.cpp:26) [93]  (0.000 ns)
-	'or' operation 2056 bit ('or_ln26_3', PFN.cpp:26) [94]  (0.492 ns)
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 2.024ns
+The critical path consists of the following:
+	'load' operation 32 bit ('i', PFN.cpp:52) on local variable 'i', PFN.cpp:52 [24]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln52', PFN.cpp:52) [25]  (1.486 ns)
+	'store' operation ('store_ln52', PFN.cpp:52) of variable 'add_ln52', PFN.cpp:52 32 bit on local variable 'i', PFN.cpp:52 [58]  (0.538 ns)
+
+ <State 7>: 3.156ns
+The critical path consists of the following:
+	'load' operation 32 bit ('x', PFN.cpp:53) on array 'indices', PFN.cpp:29 [32]  (1.771 ns)
+	'add' operation 14 bit ('add_ln60', PFN.cpp:60) [38]  (1.385 ns)
+
+ <State 8>: 5.621ns
+The critical path consists of the following:
+	'load' operation 32 bit ('pseudoimage_count_load', PFN.cpp:60) on array 'pseudoimage_count' [42]  (0.000 ns)
+	'uitodp' operation 64 bit ('conv1', PFN.cpp:66) [47]  (5.621 ns)
+
+ <State 9>: 5.621ns
+The critical path consists of the following:
+	'uitodp' operation 64 bit ('conv1', PFN.cpp:66) [47]  (5.621 ns)
+
+ <State 10>: 5.621ns
+The critical path consists of the following:
+	'uitodp' operation 64 bit ('conv1', PFN.cpp:66) [47]  (5.621 ns)
+
+ <State 11>: 5.621ns
+The critical path consists of the following:
+	'uitodp' operation 64 bit ('conv1', PFN.cpp:66) [47]  (5.621 ns)
+
+ <State 12>: 5.926ns
+The critical path consists of the following:
+	'load' operation 64 bit ('avg_x_1_loc_load') on local variable 'avg_x_1_loc' [46]  (0.000 ns)
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 13>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 14>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 15>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 16>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 17>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 18>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 19>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 20>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 21>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 22>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 23>: 5.926ns
+The critical path consists of the following:
+	'ddiv' operation 64 bit ('avg_x', PFN.cpp:66) [48]  (5.926 ns)
+
+ <State 24>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('mul', PFN.cpp:74) [52]  (7.042 ns)
+
+ <State 25>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('mul', PFN.cpp:74) [52]  (7.042 ns)
+
+ <State 26>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('mul', PFN.cpp:74) [52]  (7.042 ns)
+
+ <State 27>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('mul', PFN.cpp:74) [52]  (7.042 ns)
+
+ <State 28>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('mul', PFN.cpp:74) [52]  (7.042 ns)
+
+ <State 29>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('div5', PFN.cpp:74) [53]  (7.042 ns)
+
+ <State 30>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('div5', PFN.cpp:74) [53]  (7.042 ns)
+
+ <State 31>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('div5', PFN.cpp:74) [53]  (7.042 ns)
+
+ <State 32>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('div5', PFN.cpp:74) [53]  (7.042 ns)
+
+ <State 33>: 7.042ns
+The critical path consists of the following:
+	'dmul' operation 64 bit ('div5', PFN.cpp:74) [53]  (7.042 ns)
+
+ <State 34>: 2.024ns
+The critical path consists of the following:
+	'call' operation ('call_ln60', PFN.cpp:60) to 'calculate_pseudoimage_Pipeline_assign_loop' [57]  (2.024 ns)
+
+ <State 35>: 0.000ns
+The critical path consists of the following:
 
 
 ============================================================
@@ -232,6 +493,38 @@ N/A
 	State 1
 	State 2
 	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
 
 
 ============================================================

@@ -1,0 +1,169 @@
+
+
+================================================================
+== Vitis HLS Report for 'calculate_pseudoimage_Pipeline_sum_loop'
+================================================================
+* Date:           Fri Dec 19 23:51:06 2025
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        hls_component
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: kintexu
+* Target device:  xcku025-ffva1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  10.00 ns|  10.676 ns|     2.70 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |        ?|        ?|         ?|         ?|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |            |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- sum_loop  |        ?|        ?|         8|          4|          1|     ?|       yes|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     107|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|     165|    -|
+|Register         |        -|     -|     360|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|     360|     272|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      720|  1152|  290880|  145440|    0|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+----+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+----+---+----+------------+------------+
+    |add_ln60_fu_145_p2   |         +|   0|  0|  39|          32|           1|
+    |add_ln61_fu_155_p2   |         +|   0|  0|  27|          20|          20|
+    |icmp_ln60_fu_139_p2  |      icmp|   0|  0|  39|          32|          32|
+    |ap_enable_pp0        |       xor|   0|  0|   2|           1|           2|
+    +---------------------+----------+----+---+----+------------+------------+
+    |Total                |          |   0|  0| 107|          85|          55|
+    +---------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                      |  26|          5|    1|          5|
+    |ap_done_int                    |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0        |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1        |   9|          2|    1|          2|
+    |ap_sig_allocacmp_avg_x_load_1  |   9|          2|   64|        128|
+    |ap_sig_allocacmp_avg_y_load_1  |   9|          2|   64|        128|
+    |ap_sig_allocacmp_avg_z_load_1  |   9|          2|   64|        128|
+    |ap_sig_allocacmp_j_1           |   9|          2|   32|         64|
+    |avg_x_fu_50                    |   9|          2|   64|        128|
+    |avg_y_fu_54                    |   9|          2|   64|        128|
+    |avg_z_fu_58                    |   9|          2|   64|        128|
+    |grp_fu_112_p0                  |  20|          4|   64|        256|
+    |grp_fu_112_p1                  |  20|          4|   64|        256|
+    |j_fu_62                        |   9|          2|   32|         64|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          | 165|         35|  580|       1419|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                    |   4|   0|    4|          0|
+    |ap_done_reg                  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0_reg  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |   1|   0|    1|          0|
+    |avg_x_fu_50                  |  64|   0|   64|          0|
+    |avg_y_fu_54                  |  64|   0|   64|          0|
+    |avg_z_fu_58                  |  64|   0|   64|          0|
+    |icmp_ln60_reg_278            |   1|   0|    1|          0|
+    |j_fu_62                      |  32|   0|   32|          0|
+    |trunc_ln2_reg_297            |  64|   0|   64|          0|
+    |trunc_ln3_reg_302            |  64|   0|   64|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 360|   0|  360|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-----------------------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |              Source Object              |    C Type    |
++---------------------------+-----+-----+------------+-----------------------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|grp_fu_406_p_din0          |  out|   64|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|grp_fu_406_p_din1          |  out|   64|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|grp_fu_406_p_opcode        |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|grp_fu_406_p_dout0         |   in|   64|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|grp_fu_406_p_ce            |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_sum_loop|  return value|
+|pseudoimage_count_load     |   in|   32|     ap_none|                   pseudoimage_count_load|        scalar|
+|empty                      |   in|   20|     ap_none|                                    empty|        scalar|
+|pseudoimage_data_address0  |  out|   20|   ap_memory|                         pseudoimage_data|         array|
+|pseudoimage_data_ce0       |  out|    1|   ap_memory|                         pseudoimage_data|         array|
+|pseudoimage_data_q0        |   in|  576|   ap_memory|                         pseudoimage_data|         array|
+|avg_z_1_out                |  out|   64|      ap_vld|                              avg_z_1_out|       pointer|
+|avg_z_1_out_ap_vld         |  out|    1|      ap_vld|                              avg_z_1_out|       pointer|
+|avg_y_1_out                |  out|   64|      ap_vld|                              avg_y_1_out|       pointer|
+|avg_y_1_out_ap_vld         |  out|    1|      ap_vld|                              avg_y_1_out|       pointer|
+|avg_x_1_out                |  out|   64|      ap_vld|                              avg_x_1_out|       pointer|
+|avg_x_1_out_ap_vld         |  out|    1|      ap_vld|                              avg_x_1_out|       pointer|
++---------------------------+-----+-----+------------+-----------------------------------------+--------------+
+

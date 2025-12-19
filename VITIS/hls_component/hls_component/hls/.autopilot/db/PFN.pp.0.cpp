@@ -49461,35 +49461,72 @@ operator/(const complex<ap_ufixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N>> &__x, cons
 # 491 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\ap_fixed.h" 2
 # 440 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\ap_int.h" 2
 # 2 "PFN.cpp" 2
+# 15 "PFN.cpp"
+struct cloud_point {
+    double x, y, z, r;
+};
 
-
-
-
-
-
-
-struct point {
-    uint8_t x, y, z, r;
+struct pillar_point {
+    double x, y, z, r, xm, ym, zm, xc, yc;
 };
 
 struct pillar {
-    uint8_t count = 0;
-    point data[64];
+    unsigned count = 0;
+    pillar_point data[64];
 };
 
-__attribute__((sdx_kernel("calculate_pseudoimage", 0))) void calculate_pseudoimage(point pointcloud[1000], pillar pseudoimage[128][128]) {
+__attribute__((sdx_kernel("calculate_pseudoimage", 0))) void calculate_pseudoimage(const cloud_point pointcloud[1000], pillar pseudoimage[128][128]) {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=calculate_pseudoimage
-# 18 "PFN.cpp"
+# 28 "PFN.cpp"
 
-    VITIS_LOOP_19_1: for (int i = 0; i < 1000; i++) {
-        uint8_t x = pointcloud[i].x;
-        uint8_t y = pointcloud[i].y;
+    std::pair<unsigned, unsigned> indices[1000];
+    unsigned pillar_count = 0;
 
-        uint8_t c = pseudoimage[x][y].count;
+    collection_loop: for (unsigned i = 0; i < 1000; i++) {
+        unsigned x = ((unsigned)(pointcloud[i].x)) * 128 / 500.0;
+        unsigned y = ((unsigned)(pointcloud[i].y)) * 128 / 500.0;
+
+        unsigned c = pseudoimage[x][y].count;
         if (c < 64) {
-            pseudoimage[x][y].data[c] = pointcloud[i];
-            pseudoimage[x][y].count += 1;
+            if (c == 0) {
+                indices[i] = std::make_pair(x, y);
+                pillar_count++;
+            }
+
+            pseudoimage[x][y].data[c].x = pointcloud[i].x;
+            pseudoimage[x][y].data[c].y = pointcloud[i].y;
+            pseudoimage[x][y].data[c].z = pointcloud[i].z;
+            pseudoimage[x][y].data[c].r = pointcloud[i].r;
+
+            pseudoimage[x][y].count++;
+        }
+    }
+
+    computation_loop: for (unsigned i = 0; i < pillar_count; i++) {
+        unsigned x = indices[i].first;
+        unsigned y = indices[i].second;
+        pillar* p = &pseudoimage[x][y];
+
+        double avg_x = 0;
+        double avg_y = 0;
+        double avg_z = 0;
+        sum_loop: for (unsigned j = 0; j < p->count; j++) {
+            avg_x += p->data[j].x;
+            avg_y += p->data[j].y;
+            avg_z += p->data[j].z;
+        }
+
+        avg_x /= p->count;
+        avg_y /= p->count;
+        avg_z /= p->count;
+        assign_loop: for (unsigned j = 0; j < p->count; j++) {
+            p->data[j].xm = p->data[j].x - avg_x;
+            p->data[j].ym = p->data[j].y - avg_y;
+            p->data[j].zm = p->data[j].z - avg_z;
+
+            p->data[j].xc = p->data[j].x - ((double)x * 500.0 / 128);
+            p->data[j].yc = p->data[j].y - ((double)y * 500.0 / 128);
         }
     }
 }

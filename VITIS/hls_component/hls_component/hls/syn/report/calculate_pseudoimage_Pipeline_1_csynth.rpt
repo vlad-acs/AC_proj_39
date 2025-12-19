@@ -1,0 +1,140 @@
+
+
+================================================================
+== Vitis HLS Report for 'calculate_pseudoimage_Pipeline_1'
+================================================================
+* Date:           Fri Dec 19 23:51:05 2025
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        hls_component
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: kintexu
+* Target device:  xcku025-ffva1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.394 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval |      Pipeline     |
+    |   min   |   max   |    min    |    max    | min | max |        Type       |
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |     1001|     1001|  10.010 us|  10.010 us|    0|    0|  loop pipeline stp|
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |      999|      999|         1|          1|          1|  1000|       yes|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      34|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      27|    -|
+|Register         |        -|     -|      12|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      12|      61|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      720|  1152|  290880|  145440|    0|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+----+---+----+------------+------------+
+    |    Variable Name   | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+----+---+----+------------+------------+
+    |add_ln29_fu_72_p2   |         +|   0|  0|  17|          10|           1|
+    |icmp_ln29_fu_78_p2  |      icmp|   0|  0|  17|          10|           6|
+    +--------------------+----------+----+---+----+------------+------------+
+    |Total               |          |   0|  0|  34|          20|           7|
+    +--------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------+----+-----------+-----+-----------+
+    |                Name                | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                         |   9|          2|    1|          2|
+    |ap_sig_allocacmp_indvars_iv25_load  |   9|          2|   10|         20|
+    |indvars_iv25_fu_26                  |   9|          2|   10|         20|
+    +------------------------------------+----+-----------+-----+-----------+
+    |Total                               |  27|          6|   21|         42|
+    +------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------+----+----+-----+-----------+
+    |        Name        | FF | LUT| Bits| Const Bits|
+    +--------------------+----+----+-----+-----------+
+    |ap_CS_fsm           |   1|   0|    1|          0|
+    |ap_done_reg         |   1|   0|    1|          0|
+    |indvars_iv25_fu_26  |  10|   0|   10|          0|
+    +--------------------+----+----+-----+-----------+
+    |Total               |  12|   0|   12|          0|
+    +--------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+----------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |           Source Object          |    C Type    |
++------------------------+-----+-----+------------+----------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  calculate_pseudoimage_Pipeline_1|  return value|
+|indices_address0        |  out|   10|   ap_memory|                           indices|         array|
+|indices_ce0             |  out|    1|   ap_memory|                           indices|         array|
+|indices_we0             |  out|    1|   ap_memory|                           indices|         array|
+|indices_d0              |  out|   32|   ap_memory|                           indices|         array|
+|indices_first_address0  |  out|   10|   ap_memory|                     indices_first|         array|
+|indices_first_ce0       |  out|    1|   ap_memory|                     indices_first|         array|
+|indices_first_we0       |  out|    1|   ap_memory|                     indices_first|         array|
+|indices_first_d0        |  out|   32|   ap_memory|                     indices_first|         array|
++------------------------+-----+-----+------------+----------------------------------+--------------+
+

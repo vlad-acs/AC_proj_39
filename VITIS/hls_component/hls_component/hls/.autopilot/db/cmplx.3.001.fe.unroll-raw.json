@@ -1,20 +1,187 @@
 {
   "0": {
-    "basicblocks": 7,
-    "calls": "",
+    "basicblocks": 26,
+    "calls": "2 11 11 11 11 4 6",
     "control_depth": 2,
-    "def_use_depth": 4,
+    "def_use_depth": 8,
     "file": "PFN.cpp",
-    "fileloc": 18,
-    "instructions": 47,
+    "fileloc": 28,
+    "instructions": 234,
     "loads": {
-      "T": 8
+      "L": 2,
+      "T": 21
     },
-    "memory_accesses": 13,
+    "memory_accesses": 33,
     "name": "calculate_pseudoimage",
     "stores": {
-      "T": 5
+      "L": 2,
+      "T": 10
     },
-    "total_instructions": 47
+    "total_instructions": 785
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "x_hls_utils.h",
+    "fileloc": 456,
+    "instructions": 8,
+    "memory_accesses": 0,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 8
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "stl_pair.h",
+    "fileloc": 341,
+    "instructions": 5,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 0,
+    "name": "pair<unsigned int &, unsigned int &, true>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 5
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "8",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 69,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "__hls_fptoui_double_i32",
+    "total_instructions": 134
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "stl_pair.h",
+    "fileloc": 229,
+    "instructions": 3,
+    "memory_accesses": 0,
+    "name": "pair<unsigned int, unsigned int, true>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 3
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "x_hls_utils.h",
+    "fileloc": 485,
+    "instructions": 4,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 0,
+    "name": "expv",
+    "total_instructions": 4
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "10",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "stl_pair.h",
+    "fileloc": 524,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "make_pair<unsigned int &, unsigned int &>",
+    "total_instructions": 7
+  },
+  "5": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "x_hls_utils.h",
+    "fileloc": 503,
+    "instructions": 11,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 0,
+    "name": "mantissa",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 11
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "stl_pair.h",
+    "fileloc": 389,
+    "instructions": 5,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 0,
+    "name": "operator=",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 5
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "x_hls_utils.h",
+    "fileloc": 512,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 0,
+    "name": "__signbit",
+    "total_instructions": 3
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "9",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "generic_cast_IEEE754<unsigned int, double>",
+    "total_instructions": 132
+  },
+  "9": {
+    "basicblocks": 49,
+    "calls": "1 5 3 3 7",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 65,
+    "instructions": 100,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 0,
+    "name": "generic_cast_IEEE754<unsigned int, AP_TRN_ZERO, double>",
+    "total_instructions": 130
   }
 }

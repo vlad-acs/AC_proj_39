@@ -1,5 +1,34 @@
 # This script segment is generated automatically by AutoPilot
 
+set name calculate_pseudoimage_dmul_64ns_64ns_64_5_max_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {dmul} IMPL {maxdsp} LATENCY 4 ALLOW_PRAGMA 1
+}
+
+
+set name calculate_pseudoimage_ddiv_64ns_64ns_64_22_no_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {ddiv} IMPL {fabric} LATENCY 21 ALLOW_PRAGMA 1
+}
+
+
+set name calculate_pseudoimage_uitodp_32ns_64_4_no_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {uitodp} IMPL {auto} LATENCY 3 ALLOW_PRAGMA 1
+}
+
+
+set name calculate_pseudoimage_dadddsub_64ns_64ns_64_5_full_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {dadd} IMPL {fulldsp} LATENCY 4 ALLOW_PRAGMA 1
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler calculate_pseudoimage_indices_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
 # clear list
 if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_begin
@@ -12,14 +41,14 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 1 \
+    id 45 \
     name pointcloud \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename pointcloud \
     op interface \
-    ports { pointcloud_address0 { O 10 vector } pointcloud_ce0 { O 1 bit } pointcloud_q0 { I 32 vector } } \
+    ports { pointcloud_address0 { O 10 vector } pointcloud_ce0 { O 1 bit } pointcloud_q0 { I 256 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'pointcloud'"
@@ -31,17 +60,36 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 2 \
-    name pseudoimage \
+    id 46 \
+    name pseudoimage_count \
     reset_level 1 \
     sync_rst true \
     dir IO \
-    corename pseudoimage \
+    corename pseudoimage_count \
     op interface \
-    ports { pseudoimage_address0 { O 14 vector } pseudoimage_ce0 { O 1 bit } pseudoimage_we0 { O 1 bit } pseudoimage_d0 { O 2056 vector } pseudoimage_q0 { I 2056 vector } } \
+    ports { pseudoimage_count_address0 { O 14 vector } pseudoimage_count_ce0 { O 1 bit } pseudoimage_count_we0 { O 1 bit } pseudoimage_count_d0 { O 32 vector } pseudoimage_count_q0 { I 32 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'pseudoimage'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'pseudoimage_count'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 47 \
+    name pseudoimage_data \
+    reset_level 1 \
+    sync_rst true \
+    dir IO \
+    corename pseudoimage_data \
+    op interface \
+    ports { pseudoimage_data_address0 { O 20 vector } pseudoimage_data_ce0 { O 1 bit } pseudoimage_data_we0 { O 1 bit } pseudoimage_data_d0 { O 576 vector } pseudoimage_data_q0 { I 576 vector } pseudoimage_data_address1 { O 20 vector } pseudoimage_data_ce1 { O 1 bit } pseudoimage_data_q1 { I 576 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'pseudoimage_data'"
 }
 }
 
@@ -107,27 +155,6 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
-}
-
-
-# flow_control definition:
-set InstName calculate_pseudoimage_flow_control_loop_delay_pipe_U
-set CompName calculate_pseudoimage_flow_control_loop_delay_pipe
-set name flow_control_loop_delay_pipe
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control] == "::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control { \
-    name ${name} \
-    prefix calculate_pseudoimage_ \
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $CompName BINDTYPE interface TYPE internal_upc_flow_control INSTNAME $InstName
 }
 
 

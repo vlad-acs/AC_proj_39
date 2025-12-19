@@ -243,35 +243,48 @@ class AESL_RUNTIME_BC {
     string mName;
 };
 using hls::sim::Byte;
-struct __cosim_s257__ { char data[257]; };
-struct __cosim_s512__ { char data[512]; };
-extern "C" void calculate_pseudoimage(Byte<4>*, Byte<512>*);
-extern "C" void apatb_calculate_pseudoimage_hw(volatile void * __xlx_apatb_param_pointcloud, volatile void * __xlx_apatb_param_pseudoimage) {
+struct __cosim_s32__ { char data[32]; };
+struct __cosim_s72__ { char data[72]; };
+struct __cosim_s128__ { char data[128]; };
+extern "C" void calculate_pseudoimage(Byte<32>*, Byte<4>*, Byte<128>*);
+extern "C" void apatb_calculate_pseudoimage_hw(volatile void * __xlx_apatb_param_pointcloud, volatile void * __xlx_apatb_param_pseudoimage_count, volatile void * __xlx_apatb_param_pseudoimage_data) {
 using hls::sim::createStream;
   // Collect __xlx_pointcloud__tmp_vec
-std::vector<Byte<4>> __xlx_pointcloud__tmp_vec;
+std::vector<Byte<32>> __xlx_pointcloud__tmp_vec;
 for (size_t i = 0; i < 1000; ++i){
-__xlx_pointcloud__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_pointcloud)[i]);
+__xlx_pointcloud__tmp_vec.push_back(((Byte<32>*)__xlx_apatb_param_pointcloud)[i]);
 }
   int __xlx_size_param_pointcloud = 1000;
   int __xlx_offset_param_pointcloud = 0;
-  int __xlx_offset_byte_param_pointcloud = 0*4;
-  // Collect __xlx_pseudoimage__tmp_vec
-std::vector<Byte<512>> __xlx_pseudoimage__tmp_vec;
+  int __xlx_offset_byte_param_pointcloud = 0*32;
+  // Collect __xlx_pseudoimage_count__tmp_vec
+std::vector<Byte<4>> __xlx_pseudoimage_count__tmp_vec;
 for (size_t i = 0; i < 16384; ++i){
-__xlx_pseudoimage__tmp_vec.push_back(((Byte<512>*)__xlx_apatb_param_pseudoimage)[i]);
+__xlx_pseudoimage_count__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_pseudoimage_count)[i]);
 }
-  int __xlx_size_param_pseudoimage = 16384;
-  int __xlx_offset_param_pseudoimage = 0;
-  int __xlx_offset_byte_param_pseudoimage = 0*512;
+  int __xlx_size_param_pseudoimage_count = 16384;
+  int __xlx_offset_param_pseudoimage_count = 0;
+  int __xlx_offset_byte_param_pseudoimage_count = 0*4;
+  // Collect __xlx_pseudoimage_data__tmp_vec
+std::vector<Byte<128>> __xlx_pseudoimage_data__tmp_vec;
+for (size_t i = 0; i < 1048576; ++i){
+__xlx_pseudoimage_data__tmp_vec.push_back(((Byte<128>*)__xlx_apatb_param_pseudoimage_data)[i]);
+}
+  int __xlx_size_param_pseudoimage_data = 1048576;
+  int __xlx_offset_param_pseudoimage_data = 0;
+  int __xlx_offset_byte_param_pseudoimage_data = 0*128;
   // DUT call
-  calculate_pseudoimage(__xlx_pointcloud__tmp_vec.data(), __xlx_pseudoimage__tmp_vec.data());
+  calculate_pseudoimage(__xlx_pointcloud__tmp_vec.data(), __xlx_pseudoimage_count__tmp_vec.data(), __xlx_pseudoimage_data__tmp_vec.data());
 // print __xlx_apatb_param_pointcloud
 for (size_t i = 0; i < __xlx_size_param_pointcloud; ++i) {
-((Byte<4>*)__xlx_apatb_param_pointcloud)[i] = __xlx_pointcloud__tmp_vec[__xlx_offset_param_pointcloud+i];
+((Byte<32>*)__xlx_apatb_param_pointcloud)[i] = __xlx_pointcloud__tmp_vec[__xlx_offset_param_pointcloud+i];
 }
-// print __xlx_apatb_param_pseudoimage
-for (size_t i = 0; i < __xlx_size_param_pseudoimage; ++i) {
-((Byte<512>*)__xlx_apatb_param_pseudoimage)[i] = __xlx_pseudoimage__tmp_vec[__xlx_offset_param_pseudoimage+i];
+// print __xlx_apatb_param_pseudoimage_count
+for (size_t i = 0; i < __xlx_size_param_pseudoimage_count; ++i) {
+((Byte<4>*)__xlx_apatb_param_pseudoimage_count)[i] = __xlx_pseudoimage_count__tmp_vec[__xlx_offset_param_pseudoimage_count+i];
+}
+// print __xlx_apatb_param_pseudoimage_data
+for (size_t i = 0; i < __xlx_size_param_pseudoimage_data; ++i) {
+((Byte<128>*)__xlx_apatb_param_pseudoimage_data)[i] = __xlx_pseudoimage_data__tmp_vec[__xlx_offset_param_pseudoimage_data+i];
 }
 }

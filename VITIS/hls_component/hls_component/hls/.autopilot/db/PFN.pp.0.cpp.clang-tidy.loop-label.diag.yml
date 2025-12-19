@@ -49,16 +49,4 @@ Diagnostics:
           ReplacementText: 'VITIS_LOOP_1251_1: '
     Level:           Remark
     BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\AC\3D_Object_Detection\Implementare\AC_proj_39\VITIS\hls_component'
-  - DiagnosticName:  xilinx-label-all-loops
-    DiagnosticMessage:
-      Message:         'Added loop label VITIS_LOOP_19_1:  '
-      FilePath:        PFN.cpp
-      FileOffset:      19
-      Replacements:
-        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\AC\3D_Object_Detection\Implementare\AC_proj_39\VITIS\hls_component\hls_component\hls\.autopilot\db\PFN.pp.0.cpp'
-          Offset:          2228991
-          Length:          0
-          ReplacementText: 'VITIS_LOOP_19_1: '
-    Level:           Remark
-    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\AC\3D_Object_Detection\Implementare\AC_proj_39\VITIS\hls_component'
 ...

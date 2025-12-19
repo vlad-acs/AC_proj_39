@@ -23,12 +23,15 @@ using namespace std;
 // wrapc file define:
 #define AUTOTB_TVIN_pointcloud "../tv/cdatafile/c.calculate_pseudoimage.autotvin_pointcloud.dat"
 #define AUTOTB_TVOUT_pointcloud "../tv/cdatafile/c.calculate_pseudoimage.autotvout_pointcloud.dat"
-#define AUTOTB_TVIN_pseudoimage "../tv/cdatafile/c.calculate_pseudoimage.autotvin_pseudoimage.dat"
-#define AUTOTB_TVOUT_pseudoimage "../tv/cdatafile/c.calculate_pseudoimage.autotvout_pseudoimage.dat"
+#define AUTOTB_TVIN_pseudoimage_count "../tv/cdatafile/c.calculate_pseudoimage.autotvin_pseudoimage_count.dat"
+#define AUTOTB_TVOUT_pseudoimage_count "../tv/cdatafile/c.calculate_pseudoimage.autotvout_pseudoimage_count.dat"
+#define AUTOTB_TVIN_pseudoimage_data "../tv/cdatafile/c.calculate_pseudoimage.autotvin_pseudoimage_data.dat"
+#define AUTOTB_TVOUT_pseudoimage_data "../tv/cdatafile/c.calculate_pseudoimage.autotvout_pseudoimage_data.dat"
 
 
 // tvout file define:
-#define AUTOTB_TVOUT_PC_pseudoimage "../tv/rtldatafile/rtl.calculate_pseudoimage.autotvout_pseudoimage.dat"
+#define AUTOTB_TVOUT_PC_pseudoimage_count "../tv/rtldatafile/rtl.calculate_pseudoimage.autotvout_pseudoimage_count.dat"
+#define AUTOTB_TVOUT_PC_pseudoimage_data "../tv/rtldatafile/rtl.calculate_pseudoimage.autotvout_pseudoimage_data.dat"
 
 
 namespace hls::sim
@@ -1253,18 +1256,18 @@ namespace hls::sim
 
 
 extern "C"
-void calculate_pseudoimage_hw_stub_wrapper(void*, void*);
+void calculate_pseudoimage_hw_stub_wrapper(void*, void*, void*);
 
 extern "C"
-void apatb_calculate_pseudoimage_hw(void* __xlx_apatb_param_pointcloud, void* __xlx_apatb_param_pseudoimage)
+void apatb_calculate_pseudoimage_hw(void* __xlx_apatb_param_pointcloud, void* __xlx_apatb_param_pseudoimage_count, void* __xlx_apatb_param_pseudoimage_data)
 {
 #ifdef USE_BINARY_TV_FILE
   static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port0 {
 #else
   static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port0 {
 #endif
-    .width = 32,
-    .asize = 4,
+    .width = 256,
+    .asize = 32,
     .hbm = false,
     .name = { "pointcloud" },
 #ifdef POST_CHECK
@@ -1281,58 +1284,96 @@ void apatb_calculate_pseudoimage_hw(void* __xlx_apatb_param_pointcloud, void* __
   };
   port0.param = { __xlx_apatb_param_pointcloud };
   port0.mname = { "pointcloud" };
-  port0.nbytes = { 4000 };
+  port0.nbytes = { 32000 };
 
 #ifdef USE_BINARY_TV_FILE
   static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port1 {
 #else
   static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port1 {
 #endif
-    .width = 2056,
-    .asize = 512,
+    .width = 32,
+    .asize = 4,
     .hbm = false,
-    .name = { "pseudoimage" },
+    .name = { "pseudoimage_count" },
 #ifdef POST_CHECK
 #ifdef USE_BINARY_TV_FILE
-    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_pseudoimage),
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_pseudoimage_count),
 #else
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_pseudoimage),
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_pseudoimage_count),
 #endif
 #else
 #ifdef USE_BINARY_TV_FILE
-    .owriter = new hls::sim::Output(AUTOTB_TVOUT_pseudoimage),
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_pseudoimage_count),
 #else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_pseudoimage),
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_pseudoimage_count),
 #endif
 #ifdef USE_BINARY_TV_FILE
-    .iwriter = new hls::sim::Output(AUTOTB_TVIN_pseudoimage),
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_pseudoimage_count),
 #else
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_pseudoimage),
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_pseudoimage_count),
 #endif
 #endif
     .hasWrite = { true },
     .max_nbytes = { 0 },
   };
-  port1.param = { __xlx_apatb_param_pseudoimage };
-  port1.mname = { "pseudoimage" };
-  port1.nbytes = { 8388608 };
+  port1.param = { __xlx_apatb_param_pseudoimage_count };
+  port1.mname = { "pseudoimage_count" };
+  port1.nbytes = { 65536 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port2 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port2 {
+#endif
+    .width = 576,
+    .asize = 128,
+    .hbm = false,
+    .name = { "pseudoimage_data" },
+#ifdef POST_CHECK
+#ifdef USE_BINARY_TV_FILE
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_pseudoimage_data),
+#else
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_pseudoimage_data),
+#endif
+#else
+#ifdef USE_BINARY_TV_FILE
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_pseudoimage_data),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_pseudoimage_data),
+#endif
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_pseudoimage_data),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_pseudoimage_data),
+#endif
+#endif
+    .hasWrite = { true },
+    .max_nbytes = { 0 },
+  };
+  port2.param = { __xlx_apatb_param_pseudoimage_data };
+  port2.mname = { "pseudoimage_data" };
+  port2.nbytes = { 134217728 };
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
     check(port1);
+    check(port2);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     tcl.containsVLA = 0;
     CodeState = DUMP_INPUTS;
     dump(port0, port0.iwriter, tcl.AESL_transaction);
     dump(port1, port1.iwriter, tcl.AESL_transaction);
+    dump(port2, port2.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
+    port2.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    calculate_pseudoimage_hw_stub_wrapper(__xlx_apatb_param_pointcloud, __xlx_apatb_param_pseudoimage);
+    calculate_pseudoimage_hw_stub_wrapper(__xlx_apatb_param_pointcloud, __xlx_apatb_param_pseudoimage_count, __xlx_apatb_param_pseudoimage_data);
     CodeState = DUMP_OUTPUTS;
     dump(port1, port1.owriter, tcl.AESL_transaction);
+    dump(port2, port2.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {
