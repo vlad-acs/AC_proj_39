@@ -1,8 +1,0 @@
-# Inferred from performance & pipeline pragmas/directives
-set_directive_loop_flatten conv2d/VITIS_LOOP_54_1 -off
-set_directive_loop_flatten conv2d/VITIS_LOOP_55_2
-set_directive_loop_flatten pointpillars_cnn/VITIS_LOOP_93_5
-set_directive_loop_flatten pointpillars_cnn/VITIS_LOOP_92_4
-set_directive_loop_flatten pointpillars_cnn/VITIS_LOOP_118_1
-set_directive_loop_flatten pointpillars_cnn/VITIS_LOOP_169_1
-set_directive_loop_flatten pointpillars_cnn/VITIS_LOOP_203_4

@@ -1,0 +1,6 @@
+
+Family       : virtexu
+Device       : xcvu080_CIV
+Package      : -ffvb2104
+Speed Grade  : -3-e
+Clock Period : 10

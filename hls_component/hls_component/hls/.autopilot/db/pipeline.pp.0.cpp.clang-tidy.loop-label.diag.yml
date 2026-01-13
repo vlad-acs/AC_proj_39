@@ -1,0 +1,280 @@
+---
+MainSourceFile:  'C:/Users/vladc/Desktop/Proiecte/VitisTest/hls_component/hls_component/hls/.autopilot/db/pipeline.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          280097
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          280568
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          281040
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          626443
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_54_1:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      54
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229419
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_54_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_55_2:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      55
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229461
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_55_2: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_56_3:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      56
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229508
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_56_3: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_60_4:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      60
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229620
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_60_4: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_61_5:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      61
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229673
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_61_5: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_62_6:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      62
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2229732
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_62_6: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_85_1:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      85
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230317
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_85_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_86_2:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      86
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230359
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_86_2: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_87_3:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      87
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230406
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_87_3: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_92_4:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      92
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230499
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_92_4: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_93_5:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      93
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230553
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_93_5: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_94_6:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      94
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2230610
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_94_6: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_118_1:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      118
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2231111
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_118_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_119_2:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      119
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2231150
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_119_2: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_167_1:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      167
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2232640
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_167_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_168_2:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      168
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2232677
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_168_2: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_178_3:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      178
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2232930
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_178_3: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_199_4:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      199
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2233555
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_199_4: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_200_5:  '
+      FilePath:        pipeline.cpp
+      FileOffset:      200
+      Replacements:
+        - FilePath:        'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp'
+          Offset:          2233594
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_200_5: '
+    Level:           Remark
+    BuildDirectory:  'C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component'
+...
