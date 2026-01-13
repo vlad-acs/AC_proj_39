@@ -1,0 +1,41 @@
+{
+  "0": {
+    "basicblocks": 596,
+    "calls": "1",
+    "control_depth": 5,
+    "def_use_depth": 21,
+    "file": "pipeline.cpp",
+    "fileloc": 141,
+    "instructions": 5605,
+    "loads": {
+      "G": 661,
+      "T": 5
+    },
+    "memory_accesses": 1378,
+    "name": "pointpillars_cnn",
+    "stores": {
+      "G": 744,
+      "T": 2
+    },
+    "total_instructions": 7674
+  },
+  "1": {
+    "basicblocks": 27,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 116,
+    "file": "pipeline.cpp",
+    "fileloc": 43,
+    "instructions": 2069,
+    "loads": {
+      "G": 324,
+      "L": 1
+    },
+    "memory_accesses": 341,
+    "name": "conv2d",
+    "stores": {
+      "G": 16
+    },
+    "total_instructions": 2069
+  }
+}

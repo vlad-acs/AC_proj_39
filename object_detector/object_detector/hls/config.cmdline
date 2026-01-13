@@ -1,0 +1,3 @@
+relativeroot=C:/Users/vladc/Desktop/Proiecte/GitHub/object_detector
+original_argv=-c --mode hls --config C:\Users\vladc\Desktop\Proiecte\GitHub\object_detector\hls_config.cfg --work_dir object_detector 
+
