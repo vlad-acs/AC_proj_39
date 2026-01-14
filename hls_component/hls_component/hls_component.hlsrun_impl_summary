@@ -1,0 +1,212 @@
+<ENTRY>
+{
+ "thisFile": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls_component.hlsrun_impl_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "01/13/26 03:04:55",
+ "timestampMillis": "1768266295814",
+ "buildStep": {
+  "cmdId": "921b961f-8889-4c0b-8328-f83fca5d42a9",
+  "name": "vitis-run",
+  "logFile": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\logs\\hls_component.steps.log",
+  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --impl --config C:\\Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_config.cfg --work_dir hls_component ",
+  "args": [
+   "--mode",
+   "hls",
+   "--impl",
+   "--config",
+   "C:\\Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_config.cfg",
+   "--work_dir",
+   "hls_component"
+  ],
+  "iniFiles": [],
+  "cwd": "C:\\Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "01/13/26 03:04:55",
+ "timestampMillis": "1768266295814",
+ "status": {
+  "cmdId": "921b961f-8889-4c0b-8328-f83fca5d42a9",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300057",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_IMPL",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "pointpillars_cnn",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\pipeline.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300058",
+ "buildStep": {
+  "cmdId": "990aad36-eb72-4ebe-a095-3ae1d4f796cd",
+  "name": "",
+  "logFile": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls\\hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "C:\\Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300059",
+ "status": {
+  "cmdId": "990aad36-eb72-4ebe-a095-3ae1d4f796cd",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300061",
+ "report": {
+  "path": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls\\impl\\verilog",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_RTL_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300062",
+ "report": {
+  "path": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls\\impl\\report\\verilog\\export_syn.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_RTL_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:05:00",
+ "timestampMillis": "1768266300062",
+ "report": {
+  "path": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls\\impl\\report\\verilog\\export_syn.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_RTL_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:31:55",
+ "timestampMillis": "1768267915136",
+ "report": {
+  "path": "C:/Users\\vladc\\Desktop\\Proiecte\\VitisTest\\hls_component\\hls_component\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_RTL_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "01/13/26 03:31:55",
+ "timestampMillis": "1768267915138",
+ "status": {
+  "cmdId": "990aad36-eb72-4ebe-a095-3ae1d4f796cd",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "01/13/26 03:31:55",
+ "timestampMillis": "1768267915316",
+ "status": {
+  "cmdId": "921b961f-8889-4c0b-8328-f83fca5d42a9",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:31:55",
+ "timestampMillis": "1768267915319",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "01/13/26 03:31:55",
+ "timestampMillis": "1768267915319",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

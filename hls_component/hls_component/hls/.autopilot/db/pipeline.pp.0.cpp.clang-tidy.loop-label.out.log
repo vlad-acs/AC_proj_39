@@ -1,0 +1,115 @@
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2254:5: remark: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^
+    VITIS_LOOP_676_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2254:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2268:5: remark: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^
+    VITIS_LOOP_690_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2268:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2282:5: remark: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^
+    VITIS_LOOP_704_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:2282:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:5802:7: remark: Added loop label VITIS_LOOP_1251_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^
+      VITIS_LOOP_1251_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:5802:7: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49501:5: remark: Added loop label VITIS_LOOP_54_1:   [xilinx-label-all-loops]
+    for (int oc = 0; oc < 16; oc++) {
+    ^
+    VITIS_LOOP_54_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49501:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49502:9: remark: Added loop label VITIS_LOOP_55_2:   [xilinx-label-all-loops]
+        for (int x = 1; x < 64 - 1; x++) {
+        ^
+        VITIS_LOOP_55_2: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49502:9: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49503:13: remark: Added loop label VITIS_LOOP_56_3:   [xilinx-label-all-loops]
+            for (int y = 1; y < 64 - 1; y++) {
+            ^
+            VITIS_LOOP_56_3: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49503:13: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49507:17: remark: Added loop label VITIS_LOOP_60_4:   [xilinx-label-all-loops]
+                for (int ic = 0; ic < 4; ic++) {
+                ^
+                VITIS_LOOP_60_4: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49507:17: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49508:21: remark: Added loop label VITIS_LOOP_61_5:   [xilinx-label-all-loops]
+                    for (int kx = -1; kx <= 1; kx++) {
+                    ^
+                    VITIS_LOOP_61_5: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49508:21: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49509:25: remark: Added loop label VITIS_LOOP_62_6:   [xilinx-label-all-loops]
+                        for (int ky = -1; ky <= 1; ky++) {
+                        ^
+                        VITIS_LOOP_62_6: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49509:25: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49532:5: remark: Added loop label VITIS_LOOP_85_1:   [xilinx-label-all-loops]
+    for (int oc = 0; oc < 32; oc++) {
+    ^
+    VITIS_LOOP_85_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49532:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49533:9: remark: Added loop label VITIS_LOOP_86_2:   [xilinx-label-all-loops]
+        for (int x = 1; x < 64 - 1; x++) {
+        ^
+        VITIS_LOOP_86_2: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49533:9: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49534:13: remark: Added loop label VITIS_LOOP_87_3:   [xilinx-label-all-loops]
+            for (int y = 1; y < 64 - 1; y++) {
+            ^
+            VITIS_LOOP_87_3: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49534:13: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49539:17: remark: Added loop label VITIS_LOOP_92_4:   [xilinx-label-all-loops]
+                for (int ic = 0; ic < 16; ic++) {
+                ^
+                VITIS_LOOP_92_4: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49539:17: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49540:21: remark: Added loop label VITIS_LOOP_93_5:   [xilinx-label-all-loops]
+                    for (int kx = 0; kx < 3; kx++) {
+                    ^
+                    VITIS_LOOP_93_5: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49540:21: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49541:25: remark: Added loop label VITIS_LOOP_94_6:   [xilinx-label-all-loops]
+                        for (int ky = 0; ky < 3; ky++) {
+                        ^
+                        VITIS_LOOP_94_6: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49541:25: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49565:5: remark: Added loop label VITIS_LOOP_118_1:   [xilinx-label-all-loops]
+    for (int x = 0; x < 64; x++) {
+    ^
+    VITIS_LOOP_118_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49565:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49566:9: remark: Added loop label VITIS_LOOP_119_2:   [xilinx-label-all-loops]
+        for (int y = 0; y < 64; y++) {
+        ^
+        VITIS_LOOP_119_2: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49566:9: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49618:5: remark: Added loop label VITIS_LOOP_167_1:   [xilinx-label-all-loops]
+    for (int x = 0; x < 64; x++)
+    ^
+    VITIS_LOOP_167_1: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49618:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49619:9: remark: Added loop label VITIS_LOOP_168_2:   [xilinx-label-all-loops]
+        for (int y = 0; y < 64; y++) {
+        ^
+        VITIS_LOOP_168_2: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49619:9: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49629:5: remark: Added loop label VITIS_LOOP_178_3:   [xilinx-label-all-loops]
+    for (int i = 0; i < num_points; i++) {
+    ^
+    VITIS_LOOP_178_3: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49629:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49650:5: remark: Added loop label VITIS_LOOP_199_4:   [xilinx-label-all-loops]
+    for (int x = 0; x < 64; x++) {
+    ^
+    VITIS_LOOP_199_4: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49650:5: note: FIX-IT applied suggested code changes
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49651:9: remark: Added loop label VITIS_LOOP_200_5:   [xilinx-label-all-loops]
+        for (int y = 0; y < 64; y++) {
+        ^
+        VITIS_LOOP_200_5: 
+C:\Users\vladc\Desktop\Proiecte\VitisTest\hls_component\hls_component\hls\.autopilot\db\pipeline.pp.0.cpp:49651:9: note: FIX-IT applied suggested code changes
